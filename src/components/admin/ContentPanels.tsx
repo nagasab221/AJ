@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BilingualField, ConfirmDialog, Field, ImagePicker, TextInput, TextArea, Toggle } from '@/components/admin/ui';
+import { BilingualField, ConfirmDialog, Field, ImagePicker, TextInput, Toggle } from '@/components/admin/ui';
 import { PlusIcon, TrashIcon } from '@/components/Icons';
 import { cx, makeId } from '@/lib/utils';
 import {

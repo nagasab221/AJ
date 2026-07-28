@@ -17,8 +17,7 @@ import {
   StoreIcon,
   WhatsAppIcon
 } from '@/components/Icons';
-import Monogram from '@/components/Monogram';
-import { formatDateLong, formatSlot, slotsForDate, dubaiTodayISO } from '@/lib/booking';
+import { formatDateLong, formatSlot, slotsForDate } from '@/lib/booking';
 import { computeTotals, depositFor, toBookedService } from '@/lib/pricing';
 import { cx, formatAED, whatsappLink } from '@/lib/utils';
 import {
