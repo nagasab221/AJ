@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aj-barbershop",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-01",
+  // Required by @opennextjs/cloudflare — runs the Next.js server on the Workers
+  // runtime with Node.js built-ins available.
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  }
+  // Secrets and environment variables (SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY,
+  // ADMIN_PASSWORD, ADMIN_SESSION_SECRET, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID,
+  // STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  // live in the Cloudflare dashboard → Workers → aj-barbershop → Settings →
+  // Variables and Secrets. Never commit them here. See DEPLOY.md.
+}

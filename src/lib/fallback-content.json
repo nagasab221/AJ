@@ -1,0 +1,285 @@
+{
+  "site": {
+    "tagline": { "en": "Barbering with intent", "ar": "حلاقة بإتقان" },
+    "heroEyebrow": { "en": "Dubai · Barbershop & home visits", "ar": "دبي · صالون وزيارات منزلية" },
+    "heroTitle": { "en": "Sharp fades, done properly.", "ar": "قصّات دقيقة، بإتقان." },
+    "heroSubtitle": {
+      "en": "A quiet chair, a clean line-up, and no rush. Book AJ at the shop or have him come to you anywhere in Dubai.",
+      "ar": "كرسي هادئ، خطوط نظيفة، وبدون استعجال. احجز مع AJ في الصالون أو اطلبه إلى منزلك في أي مكان في دبي."
+    },
+    "aboutHeading": { "en": "The hands behind the chair", "ar": "الأيادي خلف الكرسي" },
+    "aboutBody": [
+      {
+        "en": "AJ has been cutting hair since he was fifteen, first in his uncle's shop and now from his own chair in Dubai. What started as a way to make pocket money turned into a craft he refuses to hurry.",
+        "ar": "بدأ AJ الحلاقة منذ كان في الخامسة عشرة، أولاً في محل عمه واليوم من كرسيه الخاص في دبي. ما بدأ كوسيلة لكسب المصروف تحوّل إلى حرفة يرفض أن يستعجل فيها."
+      },
+      {
+        "en": "Every appointment is one client at a time — a consultation first, then the cut, then the finish. No conveyor belt, no watching the clock over your shoulder.",
+        "ar": "كل موعد مخصص لعميل واحد فقط — استشارة أولاً، ثم القص، ثم اللمسة الأخيرة. بدون استعجال وبدون نظرات إلى الساعة."
+      }
+    ],
+    "barberName": { "en": "AJ", "ar": "AJ" },
+    "barberRole": { "en": "Master barber & owner", "ar": "حلاق محترف وصاحب الصالون" },
+    "barberBio": {
+      "en": "Specialist in skin fades, beard sculpting and hot towel shaves. Trained in London, twelve years at the chair.",
+      "ar": "متخصص في قصات السكِن فيد، ونحت اللحية، والحلاقة بالمنشفة الساخنة. تدرّب في لندن، واثنا عشر عاماً خلف الكرسي."
+    },
+    "stats": [
+      { "value": "12", "label": { "en": "Years at the chair", "ar": "سنة من الخبرة" } },
+      { "value": "8,000+", "label": { "en": "Clients served", "ar": "عميل خدمناهم" } },
+      { "value": "4.9", "label": { "en": "Average rating", "ar": "متوسط التقييم" } },
+      { "value": "40+", "label": { "en": "Home visits a month", "ar": "زيارة منزلية شهرياً" } }
+    ],
+    "phone": "+971500000000",
+    "whatsapp": "+971500000000",
+    "email": "hello@ajfades.ae",
+    "instagram": "https://www.instagram.com/ajfades.ae/",
+    "tiktok": ""
+  },
+
+  "booking": {
+    "heading": { "en": "Book your chair", "ar": "احجز كرسيك" },
+    "subheading": {
+      "en": "Pick your services, choose a time, and you're done. Pay a small deposit now or settle up at the shop — your choice.",
+      "ar": "اختر خدماتك، حدّد الوقت، وانتهى الأمر. ادفع عربوناً بسيطاً الآن أو ادفع في الصالون — القرار لك."
+    },
+    "workingHours": [
+      { "day": "sunday", "open": "10:00", "close": "22:00" },
+      { "day": "monday", "open": "10:00", "close": "22:00" },
+      { "day": "tuesday", "open": "10:00", "close": "22:00" },
+      { "day": "wednesday", "open": "10:00", "close": "22:00" },
+      { "day": "thursday", "open": "10:00", "close": "23:00" },
+      { "day": "friday", "open": "14:00", "close": "23:00" },
+      { "day": "saturday", "open": "10:00", "close": "23:00" }
+    ],
+    "blockedDates": [],
+    "shopOpen": true,
+    "areaName": { "en": "Jumeirah & Al Wasl", "ar": "جميرا والوصل" },
+    "travelFee": 30,
+    "depositEnabled": true,
+    "depositType": "fixed",
+    "depositValue": 25,
+    "depositRequired": false
+  },
+
+  "location": {
+    "address": { "en": "Al Wasl Road, Jumeirah 1, Dubai, UAE", "ar": "شارع الوصل، جميرا ١، دبي، الإمارات" },
+    "hoursText": {
+      "en": "Sat – Thu 10:00 – 22:00 · Fri 14:00 – 23:00",
+      "ar": "السبت – الخميس ١٠:٠٠ – ٢٢:٠٠ · الجمعة ١٤:٠٠ – ٢٣:٠٠"
+    },
+    "lat": 25.211,
+    "lng": 55.253,
+    "mapsUrl": ""
+  },
+
+  "services": [
+    {
+      "id": "skin-fade",
+      "name": { "en": "Skin Fade", "ar": "سكِن فيد" },
+      "price": 70,
+      "duration": 45,
+      "description": {
+        "en": "Tight blended fade, razor line-up, finished with a hot towel.",
+        "ar": "تدرّج ناعم ومتقن مع خط أمامي بالموس، وينتهي بمنشفة ساخنة."
+      },
+      "category": "hair",
+      "popular": true,
+      "venue": "both",
+      "image": "/img/work-1.svg"
+    },
+    {
+      "id": "classic-cut",
+      "name": { "en": "Classic Scissor Cut", "ar": "قصة كلاسيكية بالمقص" },
+      "price": 65,
+      "duration": 45,
+      "description": {
+        "en": "Scissor work over comb for a softer, grown-in shape.",
+        "ar": "قص بالمقص والمشط لمظهر طبيعي وأنعم."
+      },
+      "category": "hair",
+      "venue": "both",
+      "image": null
+    },
+    {
+      "id": "buzz-cut",
+      "name": { "en": "Buzz Cut", "ar": "قصة بالماكينة" },
+      "price": 40,
+      "duration": 25,
+      "description": {
+        "en": "One length all over, edges cleaned up sharp.",
+        "ar": "طول واحد بالكامل مع تنظيف الأطراف بدقة."
+      },
+      "category": "hair",
+      "venue": "both",
+      "image": null
+    },
+    {
+      "id": "beard-trim",
+      "name": { "en": "Beard Trim & Shape", "ar": "تهذيب وتشكيل اللحية" },
+      "price": 45,
+      "duration": 30,
+      "description": {
+        "en": "Shaped to your jaw, cleaned with a straight razor, beard oil to finish.",
+        "ar": "تشكيل يناسب ملامحك، تنظيف بموس مستقيم، وزيت لحية في النهاية."
+      },
+      "category": "beard",
+      "venue": "both",
+      "image": "/img/work-2.svg"
+    },
+    {
+      "id": "hot-towel-shave",
+      "name": { "en": "Hot Towel Shave", "ar": "حلاقة بالمنشفة الساخنة" },
+      "price": 60,
+      "duration": 40,
+      "description": {
+        "en": "The full ritual — hot towels, pre-shave oil, straight razor, cold finish.",
+        "ar": "الطقوس الكاملة — مناشف ساخنة، زيت ما قبل الحلاقة، موس مستقيم، ولمسة باردة."
+      },
+      "category": "beard",
+      "popular": true,
+      "venue": "both",
+      "image": "/img/work-3.svg"
+    },
+    {
+      "id": "beard-colour",
+      "name": { "en": "Beard Colour", "ar": "صبغة اللحية" },
+      "price": 70,
+      "duration": 45,
+      "description": {
+        "en": "Natural-tone colour to even out grey, blended at the edges.",
+        "ar": "لون طبيعي لتوحيد الشيب مع تدرّج ناعم عند الأطراف."
+      },
+      "category": "beard",
+      "venue": "shop",
+      "image": null
+    },
+    {
+      "id": "fade-beard",
+      "name": { "en": "Fade + Beard", "ar": "فيد + لحية" },
+      "price": 100,
+      "duration": 70,
+      "description": {
+        "en": "The regular: skin fade and a full beard shape in one sitting.",
+        "ar": "الأكثر طلباً: سكِن فيد وتشكيل كامل للحية في جلسة واحدة."
+      },
+      "category": "combo",
+      "popular": true,
+      "venue": "both",
+      "image": "/img/work-4.svg"
+    },
+    {
+      "id": "full-grooming",
+      "name": { "en": "The Full AJ", "ar": "باقة AJ الكاملة" },
+      "price": 170,
+      "duration": 105,
+      "description": {
+        "en": "Cut, beard, charcoal mask, threading and styling. Ninety minutes to yourself.",
+        "ar": "قصة، لحية، ماسك فحم، خيط، وتصفيف. تسعون دقيقة لك وحدك."
+      },
+      "category": "combo",
+      "venue": "both",
+      "image": "/img/work-5.svg"
+    },
+    {
+      "id": "kids-cut",
+      "name": { "en": "Kids Cut (under 12)", "ar": "قصة أطفال (أقل من ١٢)" },
+      "price": 50,
+      "duration": 30,
+      "description": {
+        "en": "Patient, quick, and no fuss. Booster seat and cartoons on hand.",
+        "ar": "بهدوء وسرعة وبدون تعقيد. كرسي مرتفع وكرتون جاهز."
+      },
+      "category": "kids",
+      "venue": "both",
+      "image": "/img/work-6.svg"
+    },
+    {
+      "id": "charcoal-mask",
+      "name": { "en": "Charcoal Face Mask", "ar": "ماسك الفحم للوجه" },
+      "price": 35,
+      "duration": 15,
+      "description": {
+        "en": "Deep clean for the skin, best straight after a shave.",
+        "ar": "تنظيف عميق للبشرة، والأفضل بعد الحلاقة مباشرة."
+      },
+      "category": "addon",
+      "venue": "both",
+      "image": null
+    },
+    {
+      "id": "face-threading",
+      "name": { "en": "Face Threading", "ar": "خيط للوجه" },
+      "price": 25,
+      "duration": 10,
+      "description": {
+        "en": "Nose, ears and cheekbones tidied with thread.",
+        "ar": "تنظيف الأنف والأذنين وعظام الوجنتين بالخيط."
+      },
+      "category": "addon",
+      "venue": "both",
+      "image": null
+    },
+    {
+      "id": "wash-style",
+      "name": { "en": "Wash & Style", "ar": "غسيل وتصفيف" },
+      "price": 30,
+      "duration": 20,
+      "description": {
+        "en": "Shampoo, scalp massage and a proper blow-dry finish.",
+        "ar": "شامبو، مساج لفروة الرأس، وتصفيف نهائي بالمجفف."
+      },
+      "category": "addon",
+      "venue": "both",
+      "image": null
+    }
+  ],
+
+  "gallery": [
+    { "id": "g1", "caption": { "en": "Mid skin fade", "ar": "سكِن فيد متوسط" }, "image": "/img/work-1.svg" },
+    { "id": "g2", "caption": { "en": "Beard sculpt", "ar": "نحت اللحية" }, "image": "/img/work-2.svg" },
+    { "id": "g3", "caption": { "en": "Hot towel shave", "ar": "حلاقة بالمنشفة الساخنة" }, "image": "/img/work-3.svg" },
+    { "id": "g4", "caption": { "en": "Fade and line-up", "ar": "فيد وخط أمامي" }, "image": "/img/work-4.svg" },
+    { "id": "g5", "caption": { "en": "Textured crop", "ar": "قصة بتكستشر" }, "image": "/img/work-5.svg" },
+    { "id": "g6", "caption": { "en": "First cut, six years old", "ar": "أول قصة، ست سنوات" }, "image": "/img/work-6.svg" }
+  ],
+
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Omar K.",
+      "quote": {
+        "en": "Best fade I've had in Dubai, and I've tried plenty. AJ actually listens before he starts cutting.",
+        "ar": "أفضل فيد حصلت عليه في دبي، وقد جربت الكثير. AJ يستمع فعلاً قبل أن يبدأ."
+      },
+      "rating": 5
+    },
+    {
+      "id": "t2",
+      "name": "James R.",
+      "quote": {
+        "en": "He came to my place in Jumeirah at 9pm after work. Set up, cut, cleaned up — you'd never know he was there.",
+        "ar": "جاء إلى منزلي في جميرا الساعة التاسعة مساءً بعد العمل. جهّز، قصّ، ونظّف — وكأنه لم يكن هناك."
+      },
+      "rating": 5
+    },
+    {
+      "id": "t3",
+      "name": "Hassan A.",
+      "quote": {
+        "en": "Takes my son every month. Patient with kids in a way most barbers just aren't.",
+        "ar": "آخذ ابني كل شهر. صبور مع الأطفال بشكل لا تجده عند معظم الحلاقين."
+      },
+      "rating": 5
+    },
+    {
+      "id": "t4",
+      "name": "Marcus D.",
+      "quote": {
+        "en": "The hot towel shave is worth the trip on its own. Booked online in about a minute.",
+        "ar": "الحلاقة بالمنشفة الساخنة تستحق الزيارة وحدها. حجزت أونلاين خلال دقيقة تقريباً."
+      },
+      "rating": 5
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────────────────────────────────────
+   AJ — Desert Linen & Palm
+   Light, warm, arch-motif identity. Everything below is written with logical
+   properties (start/end) so the Arabic RTL layout mirrors for free.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    --header-h: 4.5rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* The sticky header must not cover the section you jumped to. */
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+  }
+
+  body {
+    @apply bg-linen font-sans text-charcoal antialiased;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* Arabic gets its own family and a touch more line-height for legibility. */
+  html[lang='ar'] body {
+    @apply font-arabic;
+    line-height: 1.85;
+  }
+
+  html[lang='ar'] .font-display {
+    @apply font-arabic;
+    font-weight: 600;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-normal;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    @apply bg-palm text-linen;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.palm.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* ── Surfaces & motifs ─────────────────────────────────────────────────── */
+
+  /* A barely-there woven linen texture. Cheap, no image request. */
+  .linen-weave {
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(199, 182, 152, 0.05) 0 1px,
+        transparent 1px 7px
+      ),
+      repeating-linear-gradient(-45deg, rgba(199, 182, 152, 0.05) 0 1px, transparent 1px 7px);
+  }
+
+  /* The signature keyhole arch used for photos, gallery frames and card tops. */
+  .arch {
+    border-radius: 14rem 14rem 1rem 1rem;
+  }
+
+  .arch-sm {
+    border-radius: 7rem 7rem 0.75rem 0.75rem;
+  }
+
+  .card {
+    @apply rounded-2xl border border-dune bg-paper shadow-soft;
+  }
+
+  .hairline {
+    @apply border-dune;
+  }
+
+  /* Small numeral that opens each section: "01 —" */
+  .section-num {
+    @apply font-display text-sm tracking-wide2 text-terracotta;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase tracking-wide3 text-stone;
+  }
+
+  /* ── Buttons ───────────────────────────────────────────────────────────── */
+
+  .btn {
+    @apply inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-full px-7 text-[0.95rem]
+      font-semibold transition-all duration-300 ease-soft disabled:cursor-not-allowed disabled:opacity-55;
+  }
+
+  .btn-palm {
+    @apply btn bg-palm text-linen hover:bg-palm-dark hover:shadow-lift;
+  }
+
+  .btn-terracotta {
+    @apply btn bg-terracotta text-white hover:bg-terracotta-dark hover:shadow-lift;
+  }
+
+  .btn-outline {
+    @apply btn border border-charcoal/25 bg-transparent text-charcoal hover:border-palm hover:bg-palm-mist hover:text-palm;
+  }
+
+  .btn-quiet {
+    @apply btn bg-dune/60 text-charcoal hover:bg-dune;
+  }
+
+  .btn-sm {
+    @apply min-h-[2.5rem] px-5 text-[0.85rem];
+  }
+
+  /* ── Public form controls ──────────────────────────────────────────────── */
+
+  .label {
+    @apply mb-1.5 block text-[0.8rem] font-semibold uppercase tracking-wide2 text-stone;
+  }
+
+  .field {
+    @apply block w-full rounded-xl border border-dune-dark bg-paper px-4 py-3 text-[1rem] text-charcoal
+      placeholder:text-stone-light focus:border-palm focus:outline-none focus:ring-2 focus:ring-palm/25;
+  }
+
+  .field-error {
+    @apply border-terracotta-dark focus:border-terracotta-dark focus:ring-terracotta/25;
+  }
+
+  select.field {
+    @apply appearance-none bg-[length:1rem] bg-no-repeat pe-10;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%235C6459' stroke-width='1.5'%3E%3Cpath d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+    background-position: right 1rem center;
+  }
+
+  [dir='rtl'] select.field {
+    background-position: left 1rem center;
+  }
+
+  /* ── Chips / tabs / badges ─────────────────────────────────────────────── */
+
+  .chip {
+    @apply inline-flex min-h-[2.5rem] items-center gap-2 rounded-full border border-dune-dark bg-paper px-5
+      text-[0.85rem] font-semibold text-stone transition-colors duration-200 hover:border-palm hover:text-palm;
+  }
+
+  .chip-active {
+    @apply border-palm bg-palm text-linen hover:bg-palm hover:text-linen;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wide2;
+  }
+
+  .badge-popular {
+    @apply badge bg-terracotta text-white;
+  }
+
+  .badge-soft {
+    @apply badge bg-palm-mist text-palm;
+  }
+
+  /* ── Admin: deliberately larger, higher-contrast, roomier ──────────────── */
+
+  .admin-scope {
+    font-size: 1.125rem; /* 18px base — everything scales from here */
+    line-height: 1.6;
+    @apply bg-linen text-charcoal;
+  }
+
+  .a-h1 {
+    @apply font-display text-4xl text-charcoal md:text-5xl;
+  }
+
+  .a-h2 {
+    @apply font-display text-2xl text-charcoal md:text-3xl;
+  }
+
+  .a-card {
+    @apply rounded-2xl border-2 border-dune-dark bg-paper p-6 shadow-soft;
+  }
+
+  .a-label {
+    @apply mb-2 block text-[1.05rem] font-bold text-charcoal;
+  }
+
+  .a-hint {
+    @apply mt-2 text-[1rem] text-stone;
+  }
+
+  /* Sizes here are deliberately set in rem against the 16px root rather than
+     inherited from .admin-scope, so they stay predictable: 1.15rem ≈ 18px. */
+  .a-input {
+    @apply block w-full rounded-xl border-2 border-dune-dark bg-white px-4 py-3 text-[1.15rem] text-charcoal
+      placeholder:text-stone-light focus:border-palm focus:outline-none focus:ring-4 focus:ring-palm/20;
+    min-height: 3.25rem; /* 52px tap target */
+  }
+
+  textarea.a-input {
+    min-height: 7rem;
+  }
+
+  .a-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 text-[1.1rem] font-bold
+      transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-55;
+    min-height: 3.25rem;
+  }
+
+  .a-btn-primary {
+    @apply a-btn bg-palm text-white hover:bg-palm-dark;
+  }
+
+  .a-btn-secondary {
+    @apply a-btn border-2 border-charcoal/30 bg-white text-charcoal hover:border-palm hover:bg-palm-mist hover:text-palm;
+  }
+
+  .a-btn-danger {
+    @apply a-btn border-2 border-terracotta-dark bg-white text-terracotta-dark hover:bg-terracotta-dark hover:text-white;
+  }
+
+  .a-nav-item {
+    @apply flex w-full items-center gap-3 rounded-xl px-5 py-4 text-start text-[1.15rem] font-bold
+      text-charcoal transition-colors duration-200 hover:bg-palm-mist;
+    min-height: 3.5rem;
+  }
+
+  .a-nav-active {
+    @apply bg-palm text-white hover:bg-palm;
+  }
+
+  .a-status {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[0.95rem] font-bold;
+  }
+}
+
+@layer utilities {
+  /* Marquee that respects direction without duplicating markup. */
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-ltr 38s linear infinite;
+  }
+
+  [dir='rtl'] .ticker-track {
+    animation-name: ticker-rtl;
+  }
+
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Hide scrollbars on horizontal scroll rails (gallery, time slots). */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mirror an icon that points somewhere (arrows, chevrons) under RTL. */
+  [dir='rtl'] .flip-rtl {
+    transform: scaleX(-1);
+  }
+
+  /* Set by the blocking script in the layout when this visitor already closed
+     the announcement bar this session — hides it before first paint. */
+  html[data-banner='off'] #announcement {
+    display: none;
+  }
+}

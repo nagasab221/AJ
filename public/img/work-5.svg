@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Textured crop — placeholder image">
+  <rect width="600" height="750" fill="#F6E7DB"/>
+  <path d="M300 90c116 0 210 94 210 210v390a20 20 0 0 1-20 20H110a20 20 0 0 1-20-20V300C90 184 184 90 300 90z" fill="#A85A2E" opacity="0.14"/>
+  <path d="M300 150c83 0 150 67 150 150v330H150V300c0-83 67-150 150-150z" fill="#A85A2E" opacity="0.22"/>
+  <circle cx="300" cy="330" r="86" fill="#A85A2E" opacity="0.55"/>
+  <path d="M214 640c0-58 38-104 86-104s86 46 86 104z" fill="#A85A2E" opacity="0.55"/>
+  <g stroke="#F6E7DB" stroke-width="7" stroke-linecap="round" opacity="0.85">
+    <path d="M258 300c12-26 72-26 84 0"/>
+    <path d="M266 356c20 16 48 16 68 0"/>
+  </g>
+  <text x="300" y="712" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#A85A2E" opacity="0.75">AJ</text>
+</svg>

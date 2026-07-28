@@ -1,0 +1,19 @@
+node_modules/
+.next/
+.open-next/
+out/
+build/
+
+# local env files — never commit real keys
+.env
+.env.local
+.env*.local
+
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-error.log*
+.vercel
+.wrangler/
+next-env.d.ts
+tsconfig.tsbuildinfo
