@@ -128,11 +128,15 @@ redeploys automatically.
 
 1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Workers** →
    **Import a repository**.
-2. Authorise GitHub and pick `aj-barbershop`.
+2. Authorise GitHub and pick the repository.
 3. Set the build settings:
    - **Build command:** `npm run cf:build`
    - **Deploy command:** `npx wrangler deploy`
-   - **Install command:** `npm install --legacy-peer-deps`
+
+   There is **no install command field** on this screen — Cloudflare runs its own
+   `npm ci`. That is why the repo contains an [`.npmrc`](.npmrc) with
+   `legacy-peer-deps=true`: without it Cloudflare's install fails with ERESOLVE
+   before the build ever starts. Leave `.npmrc` in place.
 4. Add the environment variables (step 6) **before** the first deploy, or it will
    build but fail at runtime.
 5. Save and deploy.
@@ -234,7 +238,9 @@ Content changes (prices, photos, text, hours, codes, banner) are made by AJ in
 ## Troubleshooting
 
 **`ERESOLVE unable to resolve dependency tree`**
-Use `npm install --legacy-peer-deps`. See the note in step 0.
+The `.npmrc` at the project root is missing. It carries `legacy-peer-deps=true`,
+which is what lets both your local `npm install` and Cloudflare's automatic
+`npm ci` resolve the tree. See the note in step 0.
 
 **Build fails on `esbuild` or `workerd`**
 Their install scripts were skipped. Run `npm approve-scripts --allow-scripts-pending`,
