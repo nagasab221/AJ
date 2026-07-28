@@ -1,6 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "aj-barbershop",
+  // Must match the Worker name in Cloudflare ("aj"), or Workers Builds warns
+  // about a config mismatch on every deploy and opens a PR to fix it.
+  "name": "aj",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-03-01",
   // Required by @opennextjs/cloudflare — runs the Next.js server on the Workers

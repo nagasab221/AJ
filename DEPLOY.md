@@ -158,24 +158,43 @@ in the dashboard (step 6).
 
 ## 6. Environment variables in Cloudflare
 
-Dashboard → **Workers & Pages** → `aj-barbershop` → **Settings** →
-**Variables and Secrets**.
+> **This is the step that catches everyone.** A Git-connected Worker has **two
+> separate** variable sections, and putting a value in the wrong one fails
+> silently:
+>
+> | Where | Path in the dashboard | Reaches |
+> | --- | --- | --- |
+> | **Runtime** | Worker → Settings → **Variables and Secrets** | the running Worker — `process.env` at request time |
+> | **Build** | Worker → Settings → **Build** → Variables and secrets | only the build container |
+>
+> Secrets belong in **Runtime**. `NEXT_PUBLIC_*` values belong in **Build**,
+> because Next.js inlines them into the JavaScript sent to the browser.
+>
+> Symptom of getting it wrong: `/admin` says *"The website is missing its admin
+> password setting"* even though you can see `ADMIN_PASSWORD` listed in the
+> dashboard — because what you are looking at is the build list.
 
-Add each of these. Use **Secret** (encrypted) for everything except the two marked
-plain text:
+### Runtime — Worker → Settings → Variables and Secrets
+
+All of these as **Secret** (encrypted):
+
+| Name | Value |
+| --- | --- |
+| `SUPABASE_URL` | from step 1 |
+| `SUPABASE_SERVICE_ROLE_KEY` | from step 1 |
+| `ADMIN_PASSWORD` | the password AJ will type at `/admin` |
+| `ADMIN_SESSION_SECRET` | any long random string (see below) |
+| `TELEGRAM_BOT_TOKEN` | from step 2 |
+| `TELEGRAM_CHAT_ID` | from step 2 |
+| `STRIPE_SECRET_KEY` | from step 3 |
+| `STRIPE_WEBHOOK_SECRET` | from step 3 |
+
+### Build — Worker → Settings → Build → Variables and secrets
 
 | Name | Type | Value |
 | --- | --- | --- |
-| `SUPABASE_URL` | Secret | from step 1 |
-| `SUPABASE_SERVICE_ROLE_KEY` | Secret | from step 1 |
-| `ADMIN_PASSWORD` | Secret | the password AJ will type at `/admin` |
-| `ADMIN_SESSION_SECRET` | Secret | any long random string (see below) |
-| `TELEGRAM_BOT_TOKEN` | Secret | from step 2 |
-| `TELEGRAM_CHAT_ID` | Secret | from step 2 |
-| `STRIPE_SECRET_KEY` | Secret | from step 3 |
-| `STRIPE_WEBHOOK_SECRET` | Secret | from step 3 |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Plain text | from step 3 |
 | `NEXT_PUBLIC_SITE_URL` | Plain text | `https://your-final-domain` |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Plain text | from step 3 |
 
 Generate a session secret:
 
@@ -183,10 +202,9 @@ Generate a session secret:
 node -e "console.log(crypto.randomUUID()+crypto.randomUUID())"
 ```
 
-> `NEXT_PUBLIC_*` values are baked in at **build** time, so after changing either of
-> those you must redeploy, not just restart. The rest are read at runtime.
-
-**Redeploy after adding variables.**
+**Runtime secrets** take effect on the next request — no rebuild needed, though a
+redeploy does no harm. **Build variables** are baked into the bundle, so after
+changing one you must trigger a new deploy for it to have any effect.
 
 ---
 
@@ -250,8 +268,15 @@ approve them, then `npm install --legacy-peer-deps` again.
 Supabase variables are missing or wrong in Cloudflare. The site deliberately falls
 back to built-in demo content rather than showing an error page.
 
+**`/admin` says "missing its admin password setting"**
+`ADMIN_PASSWORD` or `ADMIN_SESSION_SECRET` is not reaching the running Worker.
+Nine times out of ten they were added under **Settings → Build → Variables and
+secrets** instead of the Worker's own **Settings → Variables and Secrets**. See the
+box at the top of step 6. Both must be set, and both in the runtime section.
+
 **`/admin` says the password is wrong when it isn't**
-`ADMIN_SESSION_SECRET` is missing. Both it and `ADMIN_PASSWORD` must be set.
+You are typing the local `.env.local` password rather than the one set in
+Cloudflare. They are separate.
 
 **No Telegram messages**
 You never sent the bot `/start`, or the chat id is wrong. Re-check step 2.
