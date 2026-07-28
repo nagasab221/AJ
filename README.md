@@ -193,3 +193,4 @@ invented and need real values:
 
 Everything above is editable in `/admin` once Supabase is connected — the JSON file
 is only the starting point.
+"# AJ" 
