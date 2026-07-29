@@ -31,6 +31,17 @@ import {
 } from '@/lib/types';
 
 const STEP_KEYS = ['stepDetails', 'stepServices', 'stepWhere', 'stepWhen', 'stepConfirm'] as const;
+const LAST_STEP = STEP_KEYS.length - 1;
+
+/**
+ * How long the confirm button stays inert after the last step appears.
+ *
+ * The primary button occupies the same spot on every step, so it changes from
+ * "Next" to "Confirm booking" underneath the pointer. Without this, the second
+ * click of a double-click on "Next" lands on Confirm and books the appointment
+ * instantly, skipping the review and the promo code field.
+ */
+const CONFIRM_ARM_MS = 600;
 
 interface SubmitResult {
   ref: string;
@@ -68,6 +79,7 @@ export default function BookingForm({
   const [promo, setPromo] = useState<PromoResult | null>(null);
   const [payNow, setPayNow] = useState(false);
   const [taken, setTaken] = useState<string[]>([]);
+  const [confirmArmed, setConfirmArmed] = useState(false);
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<SubmitResult | null>(null);
@@ -164,6 +176,17 @@ export default function BookingForm({
     if (time && date && !slots.includes(time)) setTime('');
   }, [slots, time, date]);
 
+  // Arm the confirm button a beat after the last step appears, so a stray second
+  // click carried over from "Next" cannot book the appointment.
+  useEffect(() => {
+    if (step !== LAST_STEP) {
+      setConfirmArmed(false);
+      return;
+    }
+    const timer = setTimeout(() => setConfirmArmed(true), CONFIRM_ARM_MS);
+    return () => clearTimeout(timer);
+  }, [step]);
+
   // ── navigation ────────────────────────────────────────────────────────────
 
   function validateStep(index: number): string {
@@ -199,6 +222,10 @@ export default function BookingForm({
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (submitting) return;
+
+    // Nothing may book except a deliberate press of the armed confirm button on
+    // the last step. See `confirmArmed` for why.
+    if (step !== LAST_STEP || !confirmArmed) return;
 
     for (let i = 0; i < STEP_KEYS.length - 1; i++) {
       const message = validateStep(i);
@@ -702,21 +729,8 @@ export default function BookingForm({
               </dl>
             </div>
 
-            <div>
-              <label className="label" htmlFor="booking-notes">
-                {t('notes')}
-              </label>
-              <textarea
-                id="booking-notes"
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                placeholder={t('notesPlaceholder')}
-                rows={3}
-                maxLength={600}
-                className="field resize-y"
-              />
-            </div>
-
+            {/* Promo first: it changes the total shown in the summary below, and
+                it is the thing people are looking for on this step. */}
             <PromoField
               subtotal={totals.subtotal}
               applied={promo}
@@ -736,6 +750,21 @@ export default function BookingForm({
                 deposit={deposit}
                 locale={locale}
                 compact
+              />
+            </div>
+
+            <div>
+              <label className="label" htmlFor="booking-notes">
+                {t('notes')}
+              </label>
+              <textarea
+                id="booking-notes"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                placeholder={t('notesPlaceholder')}
+                rows={3}
+                maxLength={600}
+                className="field resize-y"
               />
             </div>
 
@@ -820,7 +849,11 @@ export default function BookingForm({
               <ChevronRightIcon className="h-4 w-4 flip-rtl" />
             </button>
           ) : (
-            <button type="submit" disabled={submitting} className="btn-palm ms-auto">
+            <button
+              type="submit"
+              disabled={submitting || !confirmArmed}
+              className="btn-palm ms-auto"
+            >
               {submitting ? t('submitting') : t('submit')}
             </button>
           )}
