@@ -2,24 +2,28 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+/** "8,000+" splits into prefix "", number "8,000", suffix "+". */
+const NUMERIC = /^(\D*)([\d,]+(?:\.\d+)?)(.*)$/s;
+
 /**
  * Counts a statistic up the first time it scrolls into view.
  *
- * Values are authored as free text in the admin ("4.9", "84", "8,000+"), so the
- * numeric part is animated and any prefix or suffix is left exactly as typed.
+ * Values are authored as free text in the admin ("4.9", "84", "8,000+"), so only
+ * the numeric part animates and any prefix or suffix is left exactly as typed.
  * Anything without a number renders unchanged.
  */
 export default function CountUp({ value, className }: { value: string; className?: string }) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const [display, setDisplay] = useState<string>(value);
-  const started = useRef(false);
-
-  const match = value.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/s);
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
-    if (!match) return;
+    // The real figure is what shows unless an animation actually takes over, so
+    // a stat that never animates is still correct rather than stuck at zero.
+    setDisplay(value);
+
     const node = ref.current;
-    if (!node) return;
+    const match = value.match(NUMERIC);
+    if (!node || !match) return;
 
     const [, prefix, rawNumber, suffix] = match;
     const target = Number(rawNumber.replace(/,/g, ''));
@@ -29,25 +33,24 @@ export default function CountUp({ value, className }: { value: string; className
     const grouped = rawNumber.includes(',');
     const format = (n: number) => {
       const fixed = n.toFixed(decimals);
-      return grouped ? Number(fixed).toLocaleString('en-US', { minimumFractionDigits: decimals }) : fixed;
+      return grouped
+        ? Number(fixed).toLocaleString('en-US', { minimumFractionDigits: decimals })
+        : fixed;
     };
 
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || typeof IntersectionObserver === 'undefined') {
-      setDisplay(value);
-      return;
-    }
+    if (reduced || typeof IntersectionObserver === 'undefined') return;
 
-    // The real figure stays on screen until the moment the animation starts.
-    // Zeroing on mount instead would leave a permanent "0" on any stat that
-    // never scrolls into view, or in a tab the observer never services.
     let frame = 0;
+
     const run = () => {
-      setDisplay(`${prefix}${format(0)}${suffix}`);
-      const duration = 1100;
+      // A hidden tab does not service requestAnimationFrame, so starting here
+      // would paint a zero and then freeze on it. Leave the real figure instead.
+      if (document.hidden) return;
+
       const startedAt = performance.now();
       const tick = (now: number) => {
-        const progress = Math.min((now - startedAt) / duration, 1);
+        const progress = Math.min((now - startedAt) / 1100, 1);
         // Ease out, so it decelerates into the final figure.
         const eased = 1 - Math.pow(1 - progress, 3);
         setDisplay(`${prefix}${format(target * eased)}${suffix}`);
@@ -59,10 +62,9 @@ export default function CountUp({ value, className }: { value: string; className
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting && !started.current) {
-            started.current = true;
-            run();
+          if (entry.isIntersecting) {
             observer.disconnect();
+            run();
           }
         }
       },
@@ -70,15 +72,19 @@ export default function CountUp({ value, className }: { value: string; className
     );
 
     observer.observe(node);
+
     return () => {
       observer.disconnect();
       cancelAnimationFrame(frame);
     };
-  }, [value, match]);
+    // `value` only. Deriving the match during render and listing it here made
+    // this effect re-run on every state update, and its cleanup cancelled the
+    // very frame the counter had just scheduled, freezing every stat at zero.
+  }, [value]);
 
   return (
     <span ref={ref} className={className}>
-      {match ? display : value}
+      {display}
     </span>
   );
 }
