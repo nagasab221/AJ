@@ -57,7 +57,7 @@ export default function SummaryPanel({
                       type="button"
                       onClick={() => onRemove(service.id)}
                       className="rounded-full p-1 text-stone-light transition-colors hover:bg-dune/60 hover:text-terracotta-dark"
-                      aria-label={`${service.name} — ${t('summaryServices')}`}
+                      aria-label={`${service.name}, ${t('summaryServices')}`}
                     >
                       <CloseIcon className="h-3.5 w-3.5" />
                     </button>

@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import CountUp from '@/components/CountUp';
 import Monogram from '@/components/Monogram';
 import Reveal from '@/components/Reveal';
 import SectionHeading from '@/components/SectionHeading';
@@ -33,7 +34,9 @@ export default function About({ site, locale }: { site: SiteSettings; locale: Lo
                 <dt className="text-[0.72rem] font-semibold uppercase tracking-wide2 text-stone">
                   {pick(stat.label, locale)}
                 </dt>
-                <dd className="mt-1 font-display text-[2.2rem] leading-none text-palm">{stat.value}</dd>
+                <dd className="mt-1 font-display text-[2.2rem] leading-none text-palm">
+                  <CountUp value={stat.value} />
+                </dd>
               </div>
             ))}
           </dl>
@@ -49,14 +52,14 @@ export default function About({ site, locale }: { site: SiteSettings; locale: Lo
             ))}
           </div>
 
-          {/* Pull quote — the bio, given weight rather than buried in a caption. */}
+          {/* Pull quote, the bio, given weight rather than buried in a caption. */}
           <figure className="relative mt-12 border-s-2 border-palm ps-7">
             <Monogram className="absolute -top-2 end-0 hidden h-16 w-14 text-[2.4rem] opacity-15 sm:flex" />
             <blockquote className="font-display text-[1.55rem] leading-snug text-charcoal">
               {pick(site.barberBio, locale)}
             </blockquote>
             <figcaption className="mt-4 text-[0.8rem] font-semibold uppercase tracking-wide2 text-stone">
-              {pick(site.barberName, locale)} — {pick(site.barberRole, locale)}
+              {pick(site.barberName, locale)}, {pick(site.barberRole, locale)}
             </figcaption>
           </figure>
 

@@ -159,7 +159,7 @@ export default function BookingForm({
     [date, settings, totals.duration]
   );
 
-  // Dropping a service can make the current slot too short — re-check silently.
+  // Dropping a service can make the current slot too short, re-check silently.
   useEffect(() => {
     if (time && date && !slots.includes(time)) setTime('');
   }, [slots, time, date]);
@@ -306,7 +306,7 @@ export default function BookingForm({
 
   if (result) {
     const lines = [
-      `${locale === 'ar' ? 'حجز جديد' : 'New booking'} — AJ`,
+      `${locale === 'ar' ? 'حجز جديد' : 'New booking'}, AJ`,
       `${locale === 'ar' ? 'المرجع' : 'Ref'}: ${result.ref}`,
       `${locale === 'ar' ? 'الاسم' : 'Name'}: ${name}`,
       `${locale === 'ar' ? 'الخدمات' : 'Services'}: ${booked.map((s) => s.name).join(', ')}`,
@@ -421,7 +421,7 @@ export default function BookingForm({
           ))}
         </ol>
 
-        {/* Step 1 — details */}
+        {/* Step 1, details */}
         {step === 0 ? (
           <div className="space-y-6">
             <div>
@@ -458,7 +458,7 @@ export default function BookingForm({
           </div>
         ) : null}
 
-        {/* Step 2 — services */}
+        {/* Step 2, services */}
         {step === 1 ? (
           <div>
             <h3 className="font-display text-2xl text-charcoal">{t('chooseServices')}</h3>
@@ -507,7 +507,7 @@ export default function BookingForm({
           </div>
         ) : null}
 
-        {/* Step 3 — where */}
+        {/* Step 3, where */}
         {step === 2 ? (
           <div className="space-y-6">
             <h3 className="font-display text-2xl text-charcoal">{t('where')}</h3>
@@ -608,7 +608,7 @@ export default function BookingForm({
           </div>
         ) : null}
 
-        {/* Step 4 — when */}
+        {/* Step 4, when */}
         {step === 3 ? (
           <div className="space-y-7">
             <div>
@@ -667,7 +667,7 @@ export default function BookingForm({
           </div>
         ) : null}
 
-        {/* Step 5 — confirm */}
+        {/* Step 5, confirm */}
         {step === 4 ? (
           <div className="space-y-7">
             <div>
@@ -690,7 +690,7 @@ export default function BookingForm({
                 <div className="flex justify-between gap-4">
                   <dt className="text-stone">{t('stepWhere')}</dt>
                   <dd className="text-end text-charcoal">
-                    {venue === 'home' ? `${t('atHome')} — ${address}` : t('atShop')}
+                    {venue === 'home' ? `${t('atHome')}, ${address}` : t('atShop')}
                   </dd>
                 </div>
                 <div className="flex justify-between gap-4">

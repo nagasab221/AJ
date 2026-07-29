@@ -32,7 +32,7 @@ export async function POST(request: Request) {
       linkLabel: { en: clean(linkLabel.en, 40), ar: clean(linkLabel.ar, 40) },
       style: BANNER_STYLES.includes(style) ? style : 'palm',
       // Bumping the version brings the bar back for people who dismissed the
-      // previous message — a new announcement should not stay hidden.
+      // previous message, a new announcement should not stay hidden.
       version: body.bumpVersion === true ? current.version + 1 : current.version,
       updatedAt: new Date().toISOString()
     });

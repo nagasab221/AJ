@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: 'bad_request' }, { status: 400 });
   }
 
-  // Honeypot — bots fill every field they find. Answer as if it worked so they
+  // Honeypot, bots fill every field they find. Answer as if it worked so they
   // don't learn anything, but write nothing.
   if (clean(body.company, 100)) {
     return NextResponse.json({ ok: true, ref: makeBookingRef(), depositDue: 0, payable: false });
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
     const content = await getContent();
     const settings = content.booking;
 
-    // Resolve ids against the catalogue — prices come from the server, never
+    // Resolve ids against the catalogue, prices come from the server, never
     // from the request body.
     const chosen = content.services.filter((s) => ids.includes(s.id));
     if (!chosen.length) {
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: 'slot_taken' }, { status: 409 });
     }
 
-    // Promo — revalidated here against the server-side subtotal.
+    // Promo, revalidated here against the server-side subtotal.
     const subtotalOnly = computeTotals(services, 0, 0).subtotal;
     const requestedCode = cleanPromoCode(body.promoCode);
     const promo = requestedCode ? await validatePromoCode(requestedCode, subtotalOnly) : null;
@@ -161,7 +161,7 @@ export async function POST(request: Request) {
       `Phone: ${escapeHtml(phone)}`,
       `Services: ${escapeHtml(services.map((s) => s.name).join(', '))}`,
       `When: ${escapeHtml(formatDateLong(date, 'en'))} at ${escapeHtml(formatSlot(time, 'en'))}`,
-      `Where: ${venue === 'home' ? `Home visit — ${escapeHtml(address)}` : 'At the shop'}`,
+      `Where: ${venue === 'home' ? `Home visit, ${escapeHtml(address)}` : 'At the shop'}`,
       finalTotals.travelFee > 0 ? `Travel fee: ${formatAED(finalTotals.travelFee)}` : '',
       finalTotals.discount > 0
         ? `Promo ${escapeHtml(promo?.code ?? '')}: −${formatAED(finalTotals.discount)}`

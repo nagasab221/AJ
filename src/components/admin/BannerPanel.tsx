@@ -64,7 +64,7 @@ export default function BannerPanel({
       <h1 className="a-h1">Top banner</h1>
       <p className="mt-3 max-w-2xl text-[1.1rem] text-charcoal-soft">
         A coloured strip across the very top of your website. Use it for offers, discount codes or
-        holiday hours. When it is switched off, visitors see nothing at all — no empty space.
+        holiday hours. When it is switched off, visitors see nothing at all, no empty space.
       </p>
 
       {/* Live preview */}
@@ -83,7 +83,7 @@ export default function BannerPanel({
           </div>
         ) : (
           <div className="rounded-xl border-2 border-dashed border-dune-dark bg-white px-5 py-3.5 text-center text-[1.05rem] text-stone">
-            Nothing — the banner is switched off
+            Nothing, the banner is switched off
           </div>
         )}
       </div>
@@ -102,7 +102,7 @@ export default function BannerPanel({
           <BilingualField
             id="banner-text"
             label="The message"
-            hint="Keep it short — one line reads best on a phone."
+            hint="Keep it short, one line reads best on a phone."
             value={draft.text}
             onChange={(text) => setDraft({ ...draft, text })}
           />

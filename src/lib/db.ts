@@ -86,7 +86,7 @@ export async function getContent(): Promise<SiteContent> {
   }
 }
 
-/** Throws on failure — callers surface the error in the admin UI. */
+/** Throws on failure, callers surface the error in the admin UI. */
 export async function saveContent(content: SiteContent): Promise<void> {
   const { error } = await supabase()
     .from('site_content')
@@ -99,8 +99,8 @@ export async function saveContent(content: SiteContent): Promise<void> {
 export const DEFAULT_BANNER: BannerSettings = {
   enabled: false,
   text: {
-    en: 'Eid offer — 20% off every fade with code EID20',
-    ar: 'عرض العيد — خصم ٢٠٪ على كل قصة بكود EID20'
+    en: 'Eid offer, 20% off every fade with code EID20',
+    ar: 'عرض العيد, خصم ٢٠٪ على كل قصة بكود EID20'
   },
   link: '#booking',
   linkLabel: { en: 'Book now', ar: 'احجز الآن' },

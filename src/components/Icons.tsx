@@ -1,5 +1,5 @@
 /**
- * Inline icon set. All 24×24, 1.6 stroke, currentColor — no icon library and
+ * Inline icon set. All 24×24, 1.6 stroke, currentColor, no icon library and
  * no extra network request. Icons that point somewhere carry `flip-rtl` at the
  * call site so they mirror in Arabic.
  */

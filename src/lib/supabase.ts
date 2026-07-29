@@ -14,7 +14,7 @@ export function supabaseConfigured(): boolean {
 
 let cached: SupabaseClient | null = null;
 
-/** Lazily created — env vars are injected per-request on Cloudflare Workers. */
+/** Lazily created, env vars are injected per-request on Cloudflare Workers. */
 export function supabase(): SupabaseClient {
   if (!cached) {
     const url = process.env.SUPABASE_URL;

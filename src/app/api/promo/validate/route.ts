@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic';
 /**
  * Live check for the "Have a promo code?" field.
  *
- * This is a preview only — the discount is recalculated and the use is claimed
+ * This is a preview only, the discount is recalculated and the use is claimed
  * atomically in /api/reserve, so a tampered response here buys nothing.
  */
 export async function POST(request: Request) {

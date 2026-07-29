@@ -6,7 +6,7 @@ import { CloseIcon, ArrowRightIcon } from '@/components/Icons';
 import { cx } from '@/lib/utils';
 import { t as pick, type BannerSettings, type Locale } from '@/lib/types';
 
-/** Session key — includes the version so bumping it re-shows a dismissed bar. */
+/** Session key, includes the version so bumping it re-shows a dismissed bar. */
 export function bannerKey(version: number): string {
   return `aj_banner_dismissed_v${version}`;
 }
@@ -18,7 +18,7 @@ export function bannerKey(version: number): string {
  * Dismissal is per session (sessionStorage): it stays gone while the tab is
  * open and comes back on the visitor's next visit. The blocking script in the
  * layout hides an already-dismissed bar before first paint, so there is no
- * flash and no layout shift — this component only handles the click.
+ * flash and no layout shift, this component only handles the click.
  */
 export default function AnnouncementBanner({
   banner,
@@ -36,10 +36,12 @@ export default function AnnouncementBanner({
   if (!text) return null;
 
   const linkLabel = pick(banner.linkLabel, locale);
+  // Fixed banner colours rather than theme tokens: the bar is a deliberate
+  // accent strip and must stay legible whichever theme is on.
   const tones = {
-    palm: 'bg-palm text-linen',
-    terracotta: 'bg-terracotta text-white',
-    charcoal: 'bg-charcoal text-linen'
+    palm: 'bg-banner-green text-banner-ink',
+    terracotta: 'bg-banner-orange text-banner-ink',
+    charcoal: 'bg-banner-dark text-banner-ink'
   } as const;
 
   function dismiss() {
@@ -48,7 +50,7 @@ export default function AnnouncementBanner({
       sessionStorage.setItem(bannerKey(banner.version), '1');
       document.documentElement.removeAttribute('data-banner');
     } catch {
-      // Private mode with storage disabled — closing for this render is enough.
+      // Private mode with storage disabled, closing for this render is enough.
     }
   }
 

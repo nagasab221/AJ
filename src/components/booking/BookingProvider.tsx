@@ -15,7 +15,7 @@ const BookingContext = createContext<BookingContextValue | null>(null);
 
 /**
  * Holds the chosen service ids so the Services section and the booking form
- * stay in sync — tapping "Add to booking" on a card ticks the same service in
+ * stay in sync, tapping "Add to booking" on a card ticks the same service in
  * the form further down the page.
  */
 export default function BookingProvider({ children }: { children: React.ReactNode }) {

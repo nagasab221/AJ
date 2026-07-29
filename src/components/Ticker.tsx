@@ -13,8 +13,8 @@ export default function Ticker({ services, locale }: { services: Service[]; loca
   const row = (keyPrefix: string) =>
     items.map((service) => (
       <span key={`${keyPrefix}-${service.id}`} className="flex items-center gap-4 whitespace-nowrap px-7">
-        <span className="font-display text-lg text-linen">{pick(service.name, locale)}</span>
-        <span className="text-[0.8rem] font-semibold text-dune">
+        <span className="font-display text-lg text-feature-ink">{pick(service.name, locale)}</span>
+        <span className="text-[0.8rem] font-semibold text-feature-ink/70">
           {service.startingFrom ? `${locale === 'ar' ? 'من' : 'from'} ` : ''}
           {formatAED(service.price, locale)}
         </span>
@@ -23,7 +23,8 @@ export default function Ticker({ services, locale }: { services: Service[]; loca
     ));
 
   return (
-    <div className="overflow-hidden border-y border-palm-dark bg-palm py-3.5" aria-hidden>
+    <div className="overflow-hidden border-y border-feature-line bg-feature py-3.5" aria-hidden>
+      {/* Duplicated once so the -50% loop is seamless. */}
       <div className="ticker-track">
         {row('a')}
         {row('b')}

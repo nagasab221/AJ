@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   }
 
   if (!telegramConfigured()) {
-    // Nowhere to send it — say so rather than pretending it arrived.
+    // Nowhere to send it, say so rather than pretending it arrived.
     console.warn('[api/contact] Telegram is not configured; message dropped.');
     return NextResponse.json({ ok: false }, { status: 503 });
   }

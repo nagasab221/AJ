@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "AJ — Barbershop & Home Visits in Dubai",
-    "description": "Skin fades, beard sculpting and hot towel shaves in Dubai. Book at the shop or have AJ come to you. Online booking, Apple Pay and Google Pay accepted."
+    "title": "AJ JD Gents Salon | Barbershop in Abu Dhabi",
+    "description": "Skin fades, beard sculpting and hot towel shaves at Khalidiyah Park, Abu Dhabi. Open every day until midnight. Book online or ask us to come to you."
   },
   "common": {
     "aed": "AED",
@@ -29,7 +29,9 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "switchToArabic": "العربية",
-    "switchToEnglish": "English"
+    "switchToEnglish": "English",
+    "toDark": "Switch to the dark theme",
+    "toLight": "Switch to the light theme"
   },
   "hero": {
     "bookNow": "Book an appointment",
@@ -47,7 +49,7 @@
   "services": {
     "eyebrow": "Services & prices",
     "title": "What you can book",
-    "subtitle": "Every price includes the consultation and the finish. Add as many as you like — the total updates as you go.",
+    "subtitle": "Every price includes the consultation and the finish. Add as many as you like, the total updates as you go.",
     "all": "Everything",
     "hair": "Hair",
     "beard": "Beard",
@@ -94,16 +96,16 @@
     "noServicesPicked": "Pick at least one service to continue.",
     "where": "Where would you like it?",
     "atShop": "At the shop",
-    "atShopHint": "Al Wasl Road, Jumeirah 1",
+    "atShopHint": "Khalidiyah Park, Al Khalidiyah",
     "atHome": "AJ comes to me",
-    "atHomeHint": "Anywhere in Dubai",
-    "shopClosed": "The shop is closed for now — all bookings are home visits.",
+    "atHomeHint": "Anywhere in Abu Dhabi",
+    "shopClosed": "The shop is closed for now, all bookings are home visits.",
     "address": "Your address",
-    "addressPlaceholder": "Building, street, area — plus a landmark if it helps",
+    "addressPlaceholder": "Building, street, area, plus a landmark if it helps",
     "addressRequired": "We need an address for a home visit.",
     "area": "Is this inside {area}?",
     "areaInside": "Yes, inside {area}",
-    "areaOutside": "No, elsewhere in Dubai",
+    "areaOutside": "No, elsewhere in Abu Dhabi",
     "areaOutsideNote": "A travel fee of {fee} applies outside {area}.",
     "pickDate": "Pick a date",
     "pickTime": "Pick a time",
@@ -127,7 +129,7 @@
     "submit": "Confirm booking",
     "submitting": "Confirming…",
     "successTitle": "You're booked in.",
-    "successBody": "Keep your reference safe — you'll need it to change or cancel.",
+    "successBody": "Keep your reference safe, you'll need it to change or cancel.",
     "yourRef": "Your reference",
     "sendWhatsapp": "Send the details to WhatsApp",
     "addAnother": "Make another booking",
@@ -157,13 +159,13 @@
     "payNowHint": "Apple Pay, Google Pay or card. The rest is paid at the appointment.",
     "payFull": "Pay {amount} now",
     "payLater": "Pay at the shop",
-    "payLaterHint": "No card needed — settle up when AJ is done.",
+    "payLaterHint": "No card needed, settle up when AJ is done.",
     "required": "A deposit is required to hold the slot.",
     "processing": "Processing…",
     "paySubmit": "Pay {amount}",
-    "success": "Payment received — thank you.",
+    "success": "Payment received, thank you.",
     "failed": "That payment didn't go through. You can try again or choose to pay at the shop.",
-    "unavailable": "Card payment is unavailable right now — your booking is saved and you can pay at the shop.",
+    "unavailable": "Card payment is unavailable right now, your booking is saved and you can pay at the shop.",
     "statusPaid": "Paid",
     "statusUnpaid": "Not paid",
     "statusRefunded": "Refunded",
@@ -203,7 +205,7 @@
     "directions": "Get directions",
     "mapTitle": "Map showing the shop location",
     "homeVisitsTitle": "Home visits",
-    "homeVisitsBody": "AJ travels across Dubai. Bookings inside {area} have no travel fee; anywhere else adds {fee}.",
+    "homeVisitsBody": "We travel across Abu Dhabi. Bookings inside {area} have no travel fee, anywhere else adds {fee}.",
     "today": "Today"
   },
   "contact": {
@@ -221,7 +223,7 @@
     "formMessagePlaceholder": "How can we help?",
     "send": "Send message",
     "sending": "Sending…",
-    "sent": "Thanks — your message is with AJ. He'll come back to you shortly.",
+    "sent": "Thanks, your message is with AJ. He'll come back to you shortly.",
     "error": "That didn't send. Please try WhatsApp instead."
   },
   "footer": {

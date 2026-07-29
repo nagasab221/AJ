@@ -1,38 +1,38 @@
 {
   "site": {
-    "tagline": { "en": "Barbering with intent", "ar": "حلاقة بإتقان" },
-    "heroEyebrow": { "en": "Dubai · Barbershop & home visits", "ar": "دبي · صالون وزيارات منزلية" },
+    "tagline": { "en": "Gents salon, Abu Dhabi", "ar": "صالون رجالي، أبوظبي" },
+    "heroEyebrow": { "en": "Abu Dhabi · Khalidiyah Park", "ar": "أبوظبي · حديقة الخالدية" },
     "heroTitle": { "en": "Sharp fades, done properly.", "ar": "قصّات دقيقة، بإتقان." },
     "heroSubtitle": {
-      "en": "A quiet chair, a clean line-up, and no rush. Book AJ at the shop or have him come to you anywhere in Dubai.",
-      "ar": "كرسي هادئ، خطوط نظيفة، وبدون استعجال. احجز مع AJ في الصالون أو اطلبه إلى منزلك في أي مكان في دبي."
+      "en": "A proper barbershop in Al Khalidiyah. Several chairs, no rushing, and a cut that still looks right next week. Book online, or walk in if you are passing.",
+      "ar": "صالون حلاقة حقيقي في الخالدية. عدة كراسي، بدون استعجال، وقصة تبقى أنيقة حتى الأسبوع التالي. احجز أونلاين أو مرّ علينا مباشرة."
     },
-    "aboutHeading": { "en": "The hands behind the chair", "ar": "الأيادي خلف الكرسي" },
+    "aboutHeading": { "en": "The shop, and the people in it", "ar": "الصالون ومن فيه" },
     "aboutBody": [
       {
-        "en": "AJ has been cutting hair since he was fifteen, first in his uncle's shop and now from his own chair in Dubai. What started as a way to make pocket money turned into a craft he refuses to hurry.",
-        "ar": "بدأ AJ الحلاقة منذ كان في الخامسة عشرة، أولاً في محل عمه واليوم من كرسيه الخاص في دبي. ما بدأ كوسيلة لكسب المصروف تحوّل إلى حرفة يرفض أن يستعجل فيها."
+        "en": "AJ JD Gents Salon sits inside Khalidiyah Park in Abu Dhabi. AJ opened it to be the kind of barbershop he wanted to walk into himself: no rushing you out of the chair, and nobody trying to sell you something you did not come in for.",
+        "ar": "يقع صالون AJ JD للرجال داخل حديقة الخالدية في أبوظبي. افتتحه AJ ليكون الصالون الذي يحب أن يزوره بنفسه: بدون استعجال، وبدون محاولة بيعك خدمة لم تأتِ من أجلها."
       },
       {
-        "en": "Every appointment is one client at a time — a consultation first, then the cut, then the finish. No conveyor belt, no watching the clock over your shoulder.",
-        "ar": "كل موعد مخصص لعميل واحد فقط — استشارة أولاً، ثم القص، ثم اللمسة الأخيرة. بدون استعجال وبدون نظرات إلى الساعة."
+        "en": "There are several barbers on the floor, so the wait is usually short, and most regulars end up with a chair they ask for by name. Open every day from ten in the morning until midnight.",
+        "ar": "يعمل في الصالون عدة حلاقين، لذا الانتظار عادةً قصير، ومعظم الزبائن الدائمين يطلبون كرسيهم بالاسم. مفتوح كل يوم من العاشرة صباحاً حتى منتصف الليل."
       }
     ],
     "barberName": { "en": "AJ", "ar": "AJ" },
-    "barberRole": { "en": "Master barber & owner", "ar": "حلاق محترف وصاحب الصالون" },
+    "barberRole": { "en": "Owner", "ar": "صاحب الصالون" },
     "barberBio": {
-      "en": "Specialist in skin fades, beard sculpting and hot towel shaves. Trained in London, twelve years at the chair.",
-      "ar": "متخصص في قصات السكِن فيد، ونحت اللحية، والحلاقة بالمنشفة الساخنة. تدرّب في لندن، واثنا عشر عاماً خلف الكرسي."
+      "en": "AJ and JD have been behind these chairs for years, with a team that knows the regulars by name. Whichever chair you sit in, the standard is the same.",
+      "ar": "AJ وJD خلف هذه الكراسي منذ سنوات، مع فريق يعرف الزبائن الدائمين بالاسم. أياً كان الكرسي الذي تجلس عليه، المستوى واحد."
     },
     "stats": [
-      { "value": "12", "label": { "en": "Years at the chair", "ar": "سنة من الخبرة" } },
-      { "value": "8,000+", "label": { "en": "Clients served", "ar": "عميل خدمناهم" } },
-      { "value": "4.9", "label": { "en": "Average rating", "ar": "متوسط التقييم" } },
-      { "value": "40+", "label": { "en": "Home visits a month", "ar": "زيارة منزلية شهرياً" } }
+      { "value": "4.9", "label": { "en": "Rating on Google", "ar": "التقييم على جوجل" } },
+      { "value": "84", "label": { "en": "Reviews on Google", "ar": "تقييم على جوجل" } },
+      { "value": "7", "label": { "en": "Days open a week", "ar": "أيام عمل في الأسبوع" } },
+      { "value": "14", "label": { "en": "Hours open a day", "ar": "ساعة عمل يومياً" } }
     ],
-    "phone": "+971500000000",
-    "whatsapp": "+971500000000",
-    "email": "hello@ajfades.ae",
+    "phone": "+971529334415",
+    "whatsapp": "+971529334415",
+    "email": "red.label.salon@gmail.com",
     "instagram": "https://www.instagram.com/ajfades.ae/",
     "tiktok": ""
   },
@@ -40,21 +40,21 @@
   "booking": {
     "heading": { "en": "Book your chair", "ar": "احجز كرسيك" },
     "subheading": {
-      "en": "Pick your services, choose a time, and you're done. Pay a small deposit now or settle up at the shop — your choice.",
-      "ar": "اختر خدماتك، حدّد الوقت، وانتهى الأمر. ادفع عربوناً بسيطاً الآن أو ادفع في الصالون — القرار لك."
+      "en": "Pick your services, choose a time, and you are done. Pay a small deposit now or settle up at the shop, whichever suits you.",
+      "ar": "اختر خدماتك، حدّد الوقت، وانتهى الأمر. ادفع عربوناً بسيطاً الآن أو ادفع في الصالون، كما يناسبك."
     },
     "workingHours": [
-      { "day": "sunday", "open": "10:00", "close": "22:00" },
-      { "day": "monday", "open": "10:00", "close": "22:00" },
-      { "day": "tuesday", "open": "10:00", "close": "22:00" },
-      { "day": "wednesday", "open": "10:00", "close": "22:00" },
-      { "day": "thursday", "open": "10:00", "close": "23:00" },
-      { "day": "friday", "open": "14:00", "close": "23:00" },
-      { "day": "saturday", "open": "10:00", "close": "23:00" }
+      { "day": "sunday", "open": "10:00", "close": "23:59" },
+      { "day": "monday", "open": "10:00", "close": "23:59" },
+      { "day": "tuesday", "open": "10:00", "close": "23:59" },
+      { "day": "wednesday", "open": "10:00", "close": "23:59" },
+      { "day": "thursday", "open": "10:00", "close": "23:59" },
+      { "day": "friday", "open": "10:00", "close": "23:59" },
+      { "day": "saturday", "open": "10:00", "close": "23:59" }
     ],
     "blockedDates": [],
     "shopOpen": true,
-    "areaName": { "en": "Jumeirah & Al Wasl", "ar": "جميرا والوصل" },
+    "areaName": { "en": "Al Khalidiyah", "ar": "الخالدية" },
     "travelFee": 30,
     "depositEnabled": true,
     "depositType": "fixed",
@@ -63,14 +63,17 @@
   },
 
   "location": {
-    "address": { "en": "Al Wasl Road, Jumeirah 1, Dubai, UAE", "ar": "شارع الوصل، جميرا ١، دبي، الإمارات" },
-    "hoursText": {
-      "en": "Sat – Thu 10:00 – 22:00 · Fri 14:00 – 23:00",
-      "ar": "السبت – الخميس ١٠:٠٠ – ٢٢:٠٠ · الجمعة ١٤:٠٠ – ٢٣:٠٠"
+    "address": {
+      "en": "Khalidiyah Park, Al Khalidiyah W9, Abu Dhabi",
+      "ar": "حديقة الخالدية، الخالدية W9، أبوظبي"
     },
-    "lat": 25.211,
-    "lng": 55.253,
-    "mapsUrl": ""
+    "hoursText": {
+      "en": "Every day, 10:00 until midnight",
+      "ar": "كل يوم، من ١٠:٠٠ حتى منتصف الليل"
+    },
+    "lat": 24.4703375,
+    "lng": 54.3479109,
+    "mapsUrl": "https://maps.app.goo.gl/?q=Aj+jd+gents+salon+Abu+Dhabi"
   },
 
   "services": [
@@ -80,7 +83,7 @@
       "price": 70,
       "duration": 45,
       "description": {
-        "en": "Tight blended fade, razor line-up, finished with a hot towel.",
+        "en": "Tight blended fade, razor line up, finished with a hot towel.",
         "ar": "تدرّج ناعم ومتقن مع خط أمامي بالموس، وينتهي بمنشفة ساخنة."
       },
       "category": "hair",
@@ -94,8 +97,8 @@
       "price": 65,
       "duration": 45,
       "description": {
-        "en": "Scissor work over comb for a softer, grown-in shape.",
-        "ar": "قص بالمقص والمشط لمظهر طبيعي وأنعم."
+        "en": "Scissor work over comb for a softer shape that grows out well.",
+        "ar": "قص بالمقص والمشط لمظهر أنعم ينمو بشكل جميل."
       },
       "category": "hair",
       "venue": "both",
@@ -133,8 +136,8 @@
       "price": 60,
       "duration": 40,
       "description": {
-        "en": "The full ritual — hot towels, pre-shave oil, straight razor, cold finish.",
-        "ar": "الطقوس الكاملة — مناشف ساخنة، زيت ما قبل الحلاقة، موس مستقيم، ولمسة باردة."
+        "en": "The full ritual: hot towels, pre shave oil, straight razor, cold finish.",
+        "ar": "الطقوس الكاملة: مناشف ساخنة، زيت ما قبل الحلاقة، موس مستقيم، ولمسة باردة."
       },
       "category": "beard",
       "popular": true,
@@ -147,7 +150,7 @@
       "price": 70,
       "duration": 45,
       "description": {
-        "en": "Natural-tone colour to even out grey, blended at the edges.",
+        "en": "Natural tone colour to even out grey, blended at the edges.",
         "ar": "لون طبيعي لتوحيد الشيب مع تدرّج ناعم عند الأطراف."
       },
       "category": "beard",
@@ -226,7 +229,7 @@
       "price": 30,
       "duration": 20,
       "description": {
-        "en": "Shampoo, scalp massage and a proper blow-dry finish.",
+        "en": "Shampoo, scalp massage and a proper blow dry finish.",
         "ar": "شامبو، مساج لفروة الرأس، وتصفيف نهائي بالمجفف."
       },
       "category": "addon",
@@ -239,7 +242,7 @@
     { "id": "g1", "caption": { "en": "Mid skin fade", "ar": "سكِن فيد متوسط" }, "image": "/img/work-1.svg" },
     { "id": "g2", "caption": { "en": "Beard sculpt", "ar": "نحت اللحية" }, "image": "/img/work-2.svg" },
     { "id": "g3", "caption": { "en": "Hot towel shave", "ar": "حلاقة بالمنشفة الساخنة" }, "image": "/img/work-3.svg" },
-    { "id": "g4", "caption": { "en": "Fade and line-up", "ar": "فيد وخط أمامي" }, "image": "/img/work-4.svg" },
+    { "id": "g4", "caption": { "en": "Fade and line up", "ar": "فيد وخط أمامي" }, "image": "/img/work-4.svg" },
     { "id": "g5", "caption": { "en": "Textured crop", "ar": "قصة بتكستشر" }, "image": "/img/work-5.svg" },
     { "id": "g6", "caption": { "en": "First cut, six years old", "ar": "أول قصة، ست سنوات" }, "image": "/img/work-6.svg" }
   ],
@@ -247,37 +250,37 @@
   "testimonials": [
     {
       "id": "t1",
-      "name": "Omar K.",
+      "name": "Omar Kilani",
       "quote": {
-        "en": "Best fade I've had in Dubai, and I've tried plenty. AJ actually listens before he starts cutting.",
-        "ar": "أفضل فيد حصلت عليه في دبي، وقد جربت الكثير. AJ يستمع فعلاً قبل أن يبدأ."
+        "en": "I have been cutting my hair at this salon for over 2 years now and they honestly never miss. JD always delivers the perfect cut every single time. The attention to detail, the quality of the tools, and the overall vibe in the shop are all top tier.",
+        "ar": "أقص شعري في هذا الصالون منذ أكثر من سنتين ولم يخذلوني أبداً. JD يقدم القصة المثالية في كل مرة. الاهتمام بالتفاصيل وجودة الأدوات والأجواء العامة في المحل كلها من الطراز الأول."
       },
       "rating": 5
     },
     {
       "id": "t2",
-      "name": "James R.",
+      "name": "Yousef Alsatari",
       "quote": {
-        "en": "He came to my place in Jumeirah at 9pm after work. Set up, cut, cleaned up — you'd never know he was there.",
-        "ar": "جاء إلى منزلي في جميرا الساعة التاسعة مساءً بعد العمل. جهّز، قصّ، ونظّف — وكأنه لم يكن هناك."
+        "en": "Been coming here for 2 years and they never disappoint. Always consistent, clean cuts, great attention to detail, and a really good atmosphere. Hard to find barbers you can trust every time, but Aj and Jd always get it right.",
+        "ar": "أزور المحل منذ سنتين ولم يخيبوا ظني أبداً. قصات نظيفة ومتقنة دائماً، واهتمام كبير بالتفاصيل، وأجواء ممتازة. من الصعب أن تجد حلاقين تثق بهم في كل مرة، لكن AJ وJD دائماً على قدر التوقعات."
       },
       "rating": 5
     },
     {
       "id": "t3",
-      "name": "Hassan A.",
+      "name": "Mahmoud Hamdan",
       "quote": {
-        "en": "Takes my son every month. Patient with kids in a way most barbers just aren't.",
-        "ar": "آخذ ابني كل شهر. صبور مع الأطفال بشكل لا تجده عند معظم الحلاقين."
+        "en": "AJ best barber in town, gives the best fades and always makes sure you are 100 percent. Always recommend all my friends to go here.",
+        "ar": "AJ أفضل حلاق في المدينة، يقدم أفضل قصات الفيد ويحرص دائماً على أن تكون راضياً تماماً. أنصح كل أصدقائي بزيارته."
       },
       "rating": 5
     },
     {
       "id": "t4",
-      "name": "Marcus D.",
+      "name": "Google review",
       "quote": {
-        "en": "The hot towel shave is worth the trip on its own. Booked online in about a minute.",
-        "ar": "الحلاقة بالمنشفة الساخنة تستحق الزيارة وحدها. حجزت أونلاين خلال دقيقة تقريباً."
+        "en": "Best barber I have been to. He understood exactly what I wanted and made it even better. The fade is clean, the lineup sharp, and the attention to detail is serious. Took his time and made sure everything was perfect.",
+        "ar": "أفضل حلاق زرته. فهم تماماً ما أردته وجعله أفضل. الفيد نظيف والخط دقيق والاهتمام بالتفاصيل واضح. أخذ وقته وحرص أن يكون كل شيء مثالياً."
       },
       "rating": 5
     }

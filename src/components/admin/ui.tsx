@@ -110,7 +110,7 @@ export function BilingualField({
             className="mb-1.5 block text-[0.9rem] font-bold uppercase tracking-wide2 text-stone"
             htmlFor={`${id}-ar`}
           >
-            Arabic — العربية
+            Arabic, العربية
           </label>
           <Input
             id={`${id}-ar`}

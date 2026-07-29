@@ -18,7 +18,7 @@ export function defaultWhatsappGreeting(locale: Locale): string {
     : 'Hi AJ, I would like to book an appointment.';
 }
 
-/** "AED 120" — Western digits in both languages so prices are never ambiguous. */
+/** "AED 120", Western digits in both languages so prices are never ambiguous. */
 export function formatAED(amount: number, locale: Locale = 'en'): string {
   const n = Math.round(amount * 100) / 100;
   const digits = Number.isInteger(n) ? 0 : 2;

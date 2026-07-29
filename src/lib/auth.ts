@@ -77,7 +77,7 @@ export async function checkPassword(candidate: string): Promise<boolean> {
   const real = process.env.ADMIN_PASSWORD;
   const key = await hmacKey();
   if (!real || !key) return false;
-  // verify(HMAC(real), candidate) — true only when the strings match.
+  // verify(HMAC(real), candidate), true only when the strings match.
   const sigOfReal = await crypto.subtle.sign('HMAC', key, encoder.encode(real));
   return crypto.subtle.verify('HMAC', key, sigOfReal, encoder.encode(candidate));
 }

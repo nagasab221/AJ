@@ -16,7 +16,7 @@ const REASON_KEYS: Record<string, string> = {
 };
 
 /**
- * "Have a promo code?" — checks the code against the live subtotal and reports
+ * "Have a promo code?", checks the code against the live subtotal and reports
  * the discount immediately. The answer here is only a preview; /api/reserve
  * revalidates and claims the use when the booking is actually saved.
  */
@@ -113,7 +113,7 @@ export default function PromoField({
             if (error) setError('');
           }}
           onKeyDown={(e) => {
-            // The promo box lives inside the booking form — Enter must not
+            // The promo box lives inside the booking form, Enter must not
             // submit the whole booking.
             if (e.key === 'Enter') {
               e.preventDefault();

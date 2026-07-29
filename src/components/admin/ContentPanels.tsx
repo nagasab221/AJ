@@ -533,7 +533,7 @@ export function TextPanel({ content, onChange }: Props) {
       <section className="a-card mt-6 space-y-7">
         <h2 className="a-h2">The four numbers</h2>
         <p className="text-[1.05rem] text-charcoal-soft">
-          These appear next to your photo — years of experience, customers served, and so on.
+          These appear next to your photo, years of experience, customers served, and so on.
         </p>
 
         {site.stats.map((stat, i) => (
@@ -644,7 +644,7 @@ export function TextPanel({ content, onChange }: Props) {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Field
-            label="Map position — latitude"
+            label="Map position, latitude"
             hint="From Google Maps: right-click your shop, and the two numbers appear at the top."
             htmlFor="location-lat"
           >
@@ -661,7 +661,7 @@ export function TextPanel({ content, onChange }: Props) {
               inputMode="decimal"
             />
           </Field>
-          <Field label="Map position — longitude" htmlFor="location-lng">
+          <Field label="Map position, longitude" htmlFor="location-lng">
             <TextInput
               id="location-lng"
               value={String(content.location.lng)}
@@ -765,7 +765,7 @@ export function HoursPanel({ content, onChange }: Props) {
       <section className="a-card mt-6">
         <h2 className="a-h2">Days you are away</h2>
         <p className="mt-2 text-[1.05rem] text-charcoal-soft">
-          Add a date here and nobody can book on it — useful for holidays.
+          Add a date here and nobody can book on it, useful for holidays.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -834,7 +834,7 @@ export function HoursPanel({ content, onChange }: Props) {
           <BilingualField
             id="area-name"
             label="Area you cover with no travel fee"
-            hint="For example: Jumeirah & Al Wasl."
+            hint="For example: Al Khalidiyah."
             value={booking.areaName}
             onChange={(areaName) => setBooking({ areaName })}
           />

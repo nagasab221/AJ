@@ -84,8 +84,8 @@ async function record(
     await sendTelegramMessage(
       [
         '<b>Deposit paid</b>',
-        `Ref: <b>${escapeHtml((intent.metadata?.ref as string) || '—')}</b>`,
-        `Name: ${escapeHtml((intent.metadata?.customer_name as string) || '—')}`,
+        `Ref: <b>${escapeHtml((intent.metadata?.ref as string) || '-')}</b>`,
+        `Name: ${escapeHtml((intent.metadata?.customer_name as string) || '-')}`,
         `Amount: ${formatAED(amount)}`
       ].join('\n')
     );

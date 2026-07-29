@@ -3,20 +3,95 @@
 @tailwind utilities;
 
 /* ───────────────────────────────────────────────────────────────────────────
-   AJ — Desert Linen & Palm
-   Light, warm, arch-motif identity. Everything below is written with logical
-   properties (start/end) so the Arabic RTL layout mirrors for free.
+   AJ, Desert Linen & Palm
+   Dark by default, with a light theme on [data-theme="light"]. Colours are
+   "R G B" channels so Tailwind opacity utilities keep working.
+   Written with logical properties (start/end) so Arabic RTL mirrors for free.
    ─────────────────────────────────────────────────────────────────────────── */
 
 @layer base {
   :root {
     --header-h: 4.5rem;
+
+    /* ── Dark (default) ── */
+    --c-page: 18 20 16;
+    --c-page-alt: 23 26 20;
+    --c-surface: 27 30 24;
+
+    --c-line: 44 49 40;
+    --c-line-strong: 58 64 52;
+    --c-line-stronger: 74 81 66;
+
+    --c-ink: 240 237 227;
+    --c-ink-soft: 207 204 192;
+    --c-muted: 157 162 148;
+    --c-muted-soft: 126 132 118;
+
+    --c-accent: 143 195 166;
+    --c-accent-strong: 168 212 188;
+    --c-accent-soft: 111 169 140;
+    --c-accent-tint: 30 43 35;
+
+    --c-warm: 206 123 72;
+    --c-warm-strong: 168 90 46;
+    --c-warm-tint: 42 29 20;
+
+    --c-contrast: 12 13 10;
+    --c-on-contrast: 237 234 224;
+
+    --c-feature: 24 34 25;
+    --c-feature-line: 42 58 45;
+    --c-on-feature: 237 234 224;
+
+    --c-banner-green: 47 107 80;
+    --c-banner-orange: 179 101 47;
+    --c-banner-dark: 51 54 47;
+    --c-on-banner: 247 243 235;
+
+    color-scheme: dark;
+  }
+
+  [data-theme='light'] {
+    --c-page: 247 243 235;
+    --c-page-alt: 241 235 223;
+    --c-surface: 255 252 246;
+
+    --c-line: 231 220 201;
+    --c-line-strong: 217 203 178;
+    --c-line-stronger: 199 182 152;
+
+    --c-ink: 28 31 28;
+    --c-ink-soft: 58 66 59;
+    --c-muted: 92 100 89;
+    --c-muted-soft: 124 132 121;
+
+    --c-accent: 46 74 59;
+    --c-accent-strong: 34 56 44;
+    --c-accent-soft: 62 99 80;
+    --c-accent-tint: 230 237 232;
+
+    --c-warm: 178 96 50;
+    --c-warm-strong: 168 90 46;
+    --c-warm-tint: 246 231 219;
+
+    --c-contrast: 28 31 28;
+    --c-on-contrast: 247 243 235;
+
+    --c-feature: 46 74 59;
+    --c-feature-line: 62 99 80;
+    --c-on-feature: 247 243 235;
+
+    --c-banner-green: 46 74 59;
+    --c-banner-orange: 168 90 46;
+    --c-banner-dark: 28 31 28;
+    --c-on-banner: 247 243 235;
+
+    color-scheme: light;
   }
 
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
-    /* The sticky header must not cover the section you jumped to. */
     scroll-padding-top: calc(var(--header-h) + 1rem);
   }
 
@@ -24,9 +99,12 @@
     @apply bg-linen font-sans text-charcoal antialiased;
     font-size: 1rem;
     line-height: 1.65;
+    /* Repainting on a theme switch should feel deliberate, not jarring. */
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
   }
 
-  /* Arabic gets its own family and a touch more line-height for legibility. */
   html[lang='ar'] body {
     @apply font-arabic;
     line-height: 1.85;
@@ -49,7 +127,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid theme('colors.palm.DEFAULT');
+    outline: 2px solid rgb(var(--c-accent));
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -69,17 +147,15 @@
 @layer components {
   /* ── Surfaces & motifs ─────────────────────────────────────────────────── */
 
-  /* A barely-there woven linen texture. Cheap, no image request. */
   .linen-weave {
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(199, 182, 152, 0.05) 0 1px,
+        rgb(var(--c-line-stronger) / 0.07) 0 1px,
         transparent 1px 7px
       ),
-      repeating-linear-gradient(-45deg, rgba(199, 182, 152, 0.05) 0 1px, transparent 1px 7px);
+      repeating-linear-gradient(-45deg, rgb(var(--c-line-stronger) / 0.07) 0 1px, transparent 1px 7px);
   }
 
-  /* The signature keyhole arch used for photos, gallery frames and card tops. */
   .arch {
     border-radius: 14rem 14rem 1rem 1rem;
   }
@@ -92,11 +168,6 @@
     @apply rounded-2xl border border-dune bg-paper shadow-soft;
   }
 
-  .hairline {
-    @apply border-dune;
-  }
-
-  /* Small numeral that opens each section: "01 —" */
   .section-num {
     @apply font-display text-sm tracking-wide2 text-terracotta;
   }
@@ -132,6 +203,11 @@
     @apply min-h-[2.5rem] px-5 text-[0.85rem];
   }
 
+  /* Buttons lift very slightly on press so taps feel physical. */
+  .btn:active:not(:disabled) {
+    transform: translateY(1px) scale(0.99);
+  }
+
   /* ── Public form controls ──────────────────────────────────────────────── */
 
   .label {
@@ -144,12 +220,12 @@
   }
 
   .field-error {
-    @apply border-terracotta-dark focus:border-terracotta-dark focus:ring-terracotta/25;
+    @apply border-terracotta focus:border-terracotta focus:ring-terracotta/25;
   }
 
   select.field {
     @apply appearance-none bg-[length:1rem] bg-no-repeat pe-10;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%235C6459' stroke-width='1.5'%3E%3Cpath d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%239DA294' stroke-width='1.5'%3E%3Cpath d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
     background-position: right 1rem center;
   }
 
@@ -173,17 +249,17 @@
   }
 
   .badge-popular {
-    @apply badge bg-terracotta text-white;
+    @apply badge bg-terracotta-dark text-white;
   }
 
   .badge-soft {
     @apply badge bg-palm-mist text-palm;
   }
 
-  /* ── Admin: deliberately larger, higher-contrast, roomier ──────────────── */
+  /* ── Admin: larger, higher-contrast, roomier ───────────────────────────── */
 
   .admin-scope {
-    font-size: 1.125rem; /* 18px base — everything scales from here */
+    font-size: 1.125rem;
     line-height: 1.6;
     @apply bg-linen text-charcoal;
   }
@@ -208,12 +284,10 @@
     @apply mt-2 text-[1rem] text-stone;
   }
 
-  /* Sizes here are deliberately set in rem against the 16px root rather than
-     inherited from .admin-scope, so they stay predictable: 1.15rem ≈ 18px. */
   .a-input {
     @apply block w-full rounded-xl border-2 border-dune-dark bg-white px-4 py-3 text-[1.15rem] text-charcoal
       placeholder:text-stone-light focus:border-palm focus:outline-none focus:ring-4 focus:ring-palm/20;
-    min-height: 3.25rem; /* 52px tap target */
+    min-height: 3.25rem;
   }
 
   textarea.a-input {
@@ -254,22 +328,79 @@
 }
 
 @layer utilities {
-  /* Marquee that respects direction without duplicating markup. */
+  /* ── Ticker ────────────────────────────────────────────────────────────────
+     These keyframes are declared here rather than in tailwind.config because
+     Tailwind only emits a @keyframes block when its matching `animate-*` class
+     appears in the markup. The track is driven by raw CSS, so without this the
+     bar rendered but never moved. */
+  @keyframes ticker-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes ticker-scroll-rtl {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(50%);
+    }
+  }
+
   .ticker-track {
     display: flex;
     width: max-content;
-    animation: ticker-ltr 38s linear infinite;
+    animation: ticker-scroll 42s linear infinite;
+    will-change: transform;
   }
 
   [dir='rtl'] .ticker-track {
-    animation-name: ticker-rtl;
+    animation-name: ticker-scroll-rtl;
   }
 
   .ticker-track:hover {
     animation-play-state: paused;
   }
 
-  /* Hide scrollbars on horizontal scroll rails (gallery, time slots). */
+  /* ── Small interaction touches ─────────────────────────────────────────── */
+
+  /* Nav links grow an underline from the start edge. */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: -0.35rem;
+    height: 1px;
+    width: 0;
+    background: currentColor;
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    width: 100%;
+  }
+
+  /* Cards rise a little on hover. */
+  .hover-lift {
+    transition:
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
   .no-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -279,13 +410,10 @@
     display: none;
   }
 
-  /* Mirror an icon that points somewhere (arrows, chevrons) under RTL. */
   [dir='rtl'] .flip-rtl {
     transform: scaleX(-1);
   }
 
-  /* Set by the blocking script in the layout when this visitor already closed
-     the announcement bar this session — hides it before first paint. */
   html[data-banner='off'] #announcement {
     display: none;
   }

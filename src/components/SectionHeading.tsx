@@ -33,20 +33,20 @@ export default function SectionHeading({
       )}
     >
       <div className={cx('flex w-full items-center gap-4', centered && 'justify-center')}>
-        <span className={cx('section-num', tone === 'light' && 'text-dune')}>{num}</span>
+        <span className={cx('section-num', tone === 'light' && 'text-terracotta')}>{num}</span>
         <span
           className={cx(
             'h-px flex-1 max-w-[7rem]',
-            tone === 'light' ? 'bg-linen/25' : 'bg-dune-dark'
+            tone === 'light' ? 'bg-feature-ink/25' : 'bg-dune-dark'
           )}
         />
-        <span className={cx('eyebrow', tone === 'light' && 'text-linen/70')}>{eyebrow}</span>
+        <span className={cx('eyebrow', tone === 'light' && 'text-feature-ink/70')}>{eyebrow}</span>
       </div>
 
       <h2
         className={cx(
           'mt-5 max-w-2xl text-[2.1rem] leading-[1.08] md:text-[3rem]',
-          tone === 'light' ? 'text-linen' : 'text-charcoal'
+          tone === 'light' ? 'text-feature-ink' : 'text-charcoal'
         )}
       >
         {title}
@@ -56,7 +56,7 @@ export default function SectionHeading({
         <p
           className={cx(
             'mt-4 max-w-xl text-[1.02rem] leading-relaxed',
-            tone === 'light' ? 'text-linen/75' : 'text-stone'
+            tone === 'light' ? 'text-feature-ink/75' : 'text-stone'
           )}
         >
           {subtitle}

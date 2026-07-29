@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Wordmark } from '@/components/Monogram';
 import { CloseIcon, MenuIcon } from '@/components/Icons';
+import { FlagAE, FlagUS } from '@/components/Flags';
+import ThemeToggle from '@/components/ThemeToggle';
 import { cx } from '@/lib/utils';
 import type { Locale } from '@/lib/types';
 
@@ -64,7 +66,7 @@ export default function Header({ locale, tagline }: { locale: Locale; tagline: s
             <a
               key={link.key}
               href={link.href}
-              className="text-[0.9rem] font-semibold text-charcoal-soft transition-colors duration-200 hover:text-palm"
+              className="link-underline text-[0.9rem] font-semibold text-charcoal-soft transition-colors duration-200 hover:text-palm"
             >
               {t(link.key)}
             </a>
@@ -72,11 +74,16 @@ export default function Header({ locale, tagline }: { locale: Locale; tagline: s
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
+          <ThemeToggle labels={{ toDark: t('toDark'), toLight: t('toLight') }} />
+
           <Link
             href={otherHref}
             hrefLang={other}
-            className="rounded-full border border-dune-dark px-3.5 py-2 text-[0.78rem] font-bold text-charcoal transition-colors hover:border-palm hover:text-palm"
+            className="flex items-center gap-2 rounded-full border border-dune-dark py-2 pe-3.5 ps-2.5 text-[0.78rem] font-bold text-charcoal transition-colors hover:border-palm hover:text-palm"
           >
+            <span className="h-4 w-6 overflow-hidden rounded-[3px] ring-1 ring-charcoal/15">
+              {other === 'ar' ? <FlagAE className="h-full w-full" /> : <FlagUS className="h-full w-full" />}
+            </span>
             {other === 'ar' ? t('switchToArabic') : t('switchToEnglish')}
           </Link>
 

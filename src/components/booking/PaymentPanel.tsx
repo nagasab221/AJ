@@ -16,7 +16,7 @@ import type { Locale } from '@/lib/types';
  * support them, and falls back to a card form everywhere else.
  *
  * The booking is already saved before this renders, so abandoning payment
- * costs the customer nothing — they simply pay at the shop instead.
+ * costs the customer nothing, they simply pay at the shop instead.
  */
 
 let stripePromise: Promise<Stripe | null> | null = null;
@@ -29,25 +29,48 @@ function getStripe(): Promise<Stripe | null> {
   return stripePromise;
 }
 
-/** Match the Payment Element to the site rather than shipping Stripe's default blue. */
-function appearanceFor(): Appearance {
+/**
+ * Match the Payment Element to the site rather than shipping Stripe's default
+ * blue. Stripe renders in an iframe and cannot see our CSS variables, so the
+ * current theme is read off <html> and the palette passed through explicitly.
+ */
+function appearanceFor(dark: boolean): Appearance {
+  const c = dark
+    ? {
+        accent: '#8FC3A6',
+        bg: '#1B1E18',
+        text: '#F0EDE3',
+        muted: '#9DA294',
+        line: '#3A4034',
+        danger: '#CE7B48'
+      }
+    : {
+        accent: '#2E4A3B',
+        bg: '#FFFCF6',
+        text: '#1C1F1C',
+        muted: '#5C6459',
+        line: '#D9CBB2',
+        danger: '#A85A2E'
+      };
+
   return {
-    theme: 'flat',
+    theme: dark ? 'night' : 'flat',
     variables: {
-      colorPrimary: '#2E4A3B',
-      colorBackground: '#FFFCF6',
-      colorText: '#1C1F1C',
-      colorDanger: '#A85A2E',
+      colorPrimary: c.accent,
+      colorBackground: c.bg,
+      colorText: c.text,
+      colorTextSecondary: c.muted,
+      colorDanger: c.danger,
       fontFamily: 'system-ui, sans-serif',
       borderRadius: '12px',
       spacingUnit: '4px'
     },
     rules: {
-      '.Input': { border: '1px solid #D9CBB2', boxShadow: 'none', padding: '12px' },
-      '.Input:focus': { border: '1px solid #2E4A3B', boxShadow: '0 0 0 3px rgba(46,74,59,0.18)' },
-      '.Label': { fontWeight: '600', color: '#5C6459' },
-      '.Tab': { border: '1px solid #D9CBB2' },
-      '.Tab--selected': { border: '1px solid #2E4A3B', color: '#2E4A3B' }
+      '.Input': { border: `1px solid ${c.line}`, boxShadow: 'none', padding: '12px' },
+      '.Input:focus': { border: `1px solid ${c.accent}`, boxShadow: `0 0 0 3px ${c.accent}30` },
+      '.Label': { fontWeight: '600', color: c.muted },
+      '.Tab': { border: `1px solid ${c.line}` },
+      '.Tab--selected': { border: `1px solid ${c.accent}`, color: c.accent }
     }
   };
 }
@@ -141,6 +164,11 @@ export default function PaymentPanel({
   const t = useTranslations('payment');
   const [clientSecret, setClientSecret] = useState('');
   const [failed, setFailed] = useState(false);
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    setDark(document.documentElement.getAttribute('data-theme') !== 'light');
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -167,8 +195,8 @@ export default function PaymentPanel({
   }, [bookingRef, phone]);
 
   const options = useMemo(
-    () => ({ clientSecret, appearance: appearanceFor(), locale: locale as 'en' | 'ar' }),
-    [clientSecret, locale]
+    () => ({ clientSecret, appearance: appearanceFor(dark), locale: locale as 'en' | 'ar' }),
+    [clientSecret, locale, dark]
   );
 
   if (failed) {

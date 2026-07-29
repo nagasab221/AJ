@@ -6,7 +6,7 @@ import { cx } from '@/lib/utils';
 import { t as pick, type GalleryItem, type Locale } from '@/lib/types';
 
 /**
- * Work gallery. Arch-topped frames on a staggered baseline — the same motif as
+ * Work gallery. Arch-topped frames on a staggered baseline, the same motif as
  * the hero, repeated small. Scrolls horizontally on phones so it never becomes
  * a wall of images to swipe past.
  */

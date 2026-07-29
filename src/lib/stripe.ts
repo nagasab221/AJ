@@ -35,7 +35,7 @@ let cryptoProvider: ReturnType<typeof Stripe.createSubtleCryptoProvider> | null 
 
 /**
  * Verify a webhook payload. Uses constructEventAsync because SubtleCrypto's
- * digest API is async — the synchronous constructEvent throws on Workers.
+ * digest API is async, the synchronous constructEvent throws on Workers.
  */
 export async function verifyWebhook(
   rawBody: string,

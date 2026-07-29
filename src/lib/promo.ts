@@ -11,7 +11,7 @@ import { findPromoByCode } from '@/lib/db';
 import { discountAmount } from '@/lib/pricing';
 import type { PromoCode, PromoResult } from '@/lib/types';
 
-/** Pure check — no I/O, so the same rules can run anywhere. */
+/** Pure check, no I/O, so the same rules can run anywhere. */
 export function evaluatePromo(
   promo: PromoCode | null,
   subtotal: number,

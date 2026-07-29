@@ -145,6 +145,15 @@ export function formatDateLong(dateISO: string, locale: string): string {
   }).format(new Date(Date.UTC(y, m - 1, d)));
 }
 
+/**
+ * Display helper for closing times. Slots are generated up to 23:59 because a
+ * literal 24:00 is not a valid <input type="time"> value, but "23:59" reads as
+ * a typo on the site, so it is shown as midnight.
+ */
+export function displayTime(hhmm: string): string {
+  return hhmm === '23:59' ? '00:00' : hhmm;
+}
+
 /** "1 h 15 min" from minutes. */
 export function formatDuration(minutes: number, locale: string): string {
   const h = Math.floor(minutes / 60);

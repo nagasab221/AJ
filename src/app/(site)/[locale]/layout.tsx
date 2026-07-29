@@ -2,20 +2,21 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
-import { IBM_Plex_Sans_Arabic, Instrument_Serif, Karla } from 'next/font/google';
+import { IBM_Plex_Sans_Arabic, Karla, Playfair_Display } from 'next/font/google';
 
+import { ThemeScript } from '@/components/ThemeToggle';
 import { isAppLocale } from '@/i18n/routing';
 import '@/app/globals.css';
 
 /**
- * Type pairing for the "Desert Linen & Palm" identity:
- *   Instrument Serif — tall, editorial display face
- *   Karla           — humanist body copy with a little character
- *   IBM Plex Sans Arabic — the Arabic counterpart, matched for x-height
+ * Type pairing:
+ *   Playfair Display     high-contrast serif for headings
+ *   Karla                humanist body copy with a little character
+ *   IBM Plex Sans Arabic the Arabic counterpart, matched for x-height
  */
-const display = Instrument_Serif({
+const display = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '500', '600'],
   variable: '--font-display',
   display: 'swap'
 });
@@ -47,6 +48,7 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: t('title'),
     description: t('description'),
+    icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }] },
     alternates: {
       canonical: `/${locale}`,
       languages: { en: '/en', ar: '/ar' }
@@ -84,8 +86,13 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
+      data-theme="dark"
       className={`${display.variable} ${body.variable} ${arabic.variable}`}
     >
+      <head>
+        {/* Applies the saved theme before first paint, so no flash of the wrong one. */}
+        <ThemeScript />
+      </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

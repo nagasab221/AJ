@@ -8,7 +8,7 @@ import { cx, formatAED, whatsappLink } from '@/lib/utils';
 import type { ReservationStatus, StoredReservation } from '@/lib/types';
 
 const STATUS_LABEL: Record<ReservationStatus, string> = {
-  new: 'New — needs confirming',
+  new: 'New, needs confirming',
   confirmed: 'Confirmed',
   completed: 'Finished',
   cancelled: 'Cancelled',
@@ -242,14 +242,14 @@ export default function BookingsPanel({
                       <span className="text-palm">
                         Deposit paid online{booking.depositDue > 0 ? `: ${formatAED(booking.depositDue)}` : ''}
                         {booking.total - booking.depositDue > 0
-                          ? ` — ${formatAED(booking.total - booking.depositDue)} to collect`
+                          ? `, ${formatAED(booking.total - booking.depositDue)} to collect`
                           : ''}
                       </span>
                     ) : booking.paymentStatus === 'refunded' ? (
                       <span className="text-charcoal">Refunded</span>
                     ) : (
                       <span className="text-terracotta-dark">
-                        Not paid yet — collect {formatAED(booking.total)}
+                        Not paid yet, collect {formatAED(booking.total)}
                       </span>
                     )}
                   </p>

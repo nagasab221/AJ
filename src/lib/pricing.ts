@@ -1,7 +1,7 @@
 /**
  * All booking money maths lives here so the running summary in the browser and
  * the authoritative recalculation on the server can never drift apart.
- * The client's numbers are only ever a preview — /api/reserve recomputes
+ * The client's numbers are only ever a preview, /api/reserve recomputes
  * everything from the stored service list before writing a booking.
  */
 import type { BookedService, BookingSettings, DiscountType, Service } from '@/lib/types';
@@ -30,7 +30,7 @@ export function discountAmount(subtotal: number, type: DiscountType, value: numb
 
 /**
  * Totals for a set of chosen services.
- * The promo discount applies to services only — never to the travel fee, so a
+ * The promo discount applies to services only, never to the travel fee, so a
  * 100% code can't turn a home visit into a free trip across the emirate.
  */
 export function computeTotals(
@@ -69,7 +69,7 @@ export function depositFor(total: number, settings: BookingSettings): number {
   return amount < MIN_CHARGE_AED ? 0 : amount;
 }
 
-/** Stripe takes the smallest currency unit — AED fils. */
+/** Stripe takes the smallest currency unit, AED fils. */
 export function toFils(aed: number): number {
   return Math.round(aed * 100);
 }

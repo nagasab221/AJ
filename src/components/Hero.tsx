@@ -7,7 +7,7 @@ import { t as pick, type Locale, type SiteSettings } from '@/lib/types';
 /**
  * The hero: type stack on the start side, the keyhole arch holding the portrait
  * on the end side, and a deliberate column of empty linen between them.
- * Sits at 88vh so the ticker below is visible without scrolling — the page
+ * Sits at 88vh so the ticker below is visible without scrolling, the page
  * should feel like it continues, not like a full-screen splash.
  */
 export default function Hero({
@@ -29,7 +29,7 @@ export default function Hero({
       className="linen-weave relative overflow-hidden bg-linen"
       style={{ minHeight: 'calc(88svh - var(--header-h))' }}
     >
-      {/* Oversized ghost arch — the motif, used once at scale. */}
+      {/* Oversized ghost arch, the motif, used once at scale. */}
       <div
         aria-hidden
         className="arch pointer-events-none absolute -top-24 end-[-14%] h-[46rem] w-[34rem] border border-dune-dark/40 opacity-70 lg:end-[6%]"
@@ -41,21 +41,31 @@ export default function Hero({
 
       <div className="relative mx-auto grid max-w-content grid-cols-1 items-center gap-14 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:pb-28 lg:pt-24">
         {/* Type stack */}
+        {/* The stack enters in sequence rather than all at once. */}
         <div className="lg:col-span-7 xl:col-span-6">
-          <div className="flex items-center gap-3">
+          <div className="animate-rise-in flex items-center gap-3">
             <span className="h-px w-10 bg-terracotta" />
             <p className="eyebrow text-terracotta">{pick(site.heroEyebrow, locale)}</p>
           </div>
 
-          <h1 className="mt-6 max-w-[15ch] text-[3rem] leading-[0.98] text-charcoal sm:text-[4rem] lg:text-[4.6rem]">
+          <h1
+            className="animate-rise-in mt-6 max-w-[15ch] text-[3rem] leading-[0.98] text-charcoal sm:text-[4rem] lg:text-[4.6rem]"
+            style={{ animationDelay: '90ms' }}
+          >
             {pick(site.heroTitle, locale)}
           </h1>
 
-          <p className="mt-7 max-w-lg text-[1.05rem] leading-relaxed text-stone">
+          <p
+            className="animate-rise-in mt-7 max-w-lg text-[1.05rem] leading-relaxed text-stone"
+            style={{ animationDelay: '190ms' }}
+          >
             {pick(site.heroSubtitle, locale)}
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div
+            className="animate-rise-in mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+            style={{ animationDelay: '290ms' }}
+          >
             <a href="#booking" className="btn-palm w-full sm:w-auto">
               {t('bookNow')}
             </a>
@@ -71,7 +81,10 @@ export default function Hero({
           </div>
 
           {/* Trust strip */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-[0.85rem] text-stone">
+          <div
+            className="animate-rise-in mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-[0.85rem] text-stone"
+            style={{ animationDelay: '390ms' }}
+          >
             <span className="inline-flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-palm animate-soft-pulse" />
               {openLabel}
@@ -87,7 +100,10 @@ export default function Hero({
 
         {/* The arch */}
         <div className="relative lg:col-span-5 xl:col-span-6">
-          <div className="relative mx-auto w-full max-w-[22rem] lg:ms-auto lg:me-0">
+          <div
+            className="animate-arch-grow relative mx-auto w-full max-w-[22rem] lg:ms-auto lg:me-0"
+            style={{ animationDelay: '160ms' }}
+          >
             {/* Dune ring sitting behind, offset so the arch reads as layered. */}
             <div
               aria-hidden

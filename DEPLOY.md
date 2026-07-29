@@ -11,7 +11,7 @@ Do the steps in order. Steps 1–4 only ever need doing once.
 
 You need:
 
-- Node.js 20 or newer — check with `node -v`
+- Node.js 20 or newer, check with `node -v`
 - A GitHub account
 - A Cloudflare account (free plan is fine)
 - A Supabase account (free plan is fine)
@@ -54,7 +54,7 @@ The build passes `--dangerouslyUseUnsupportedNextVersion` for the same reason.
 1. In Telegram, message **@BotFather** → `/newbot` → follow the prompts.
 2. Copy the token it gives you → this is `TELEGRAM_BOT_TOKEN`.
 3. **Send your new bot a `/start` message.** A bot cannot message you until you have
-   messaged it first — this is the step people forget.
+   messaged it first, this is the step people forget.
 4. Open this URL in a browser, replacing `<TOKEN>`:
    `https://api.telegram.org/bot<TOKEN>/getUpdates`
 5. Find `"chat":{"id":123456789` → that number is `TELEGRAM_CHAT_ID`.
@@ -85,7 +85,7 @@ Test cards: `4242 4242 4242 4242`, any future expiry, any CVC.
 Going live later: switch the dashboard out of test mode, regenerate all three
 values from the live keys, and update them in Cloudflare.
 
-**If Stripe is left unconfigured the site still works** — the "pay now" option
+**If Stripe is left unconfigured the site still works**, the "pay now" option
 simply never appears and every booking is recorded as pay-at-the-shop.
 
 ---
@@ -121,10 +121,10 @@ gh repo create aj-barbershop --private --source=. --remote=origin --push
 
 ## 5. Deploy to Cloudflare Workers
 
-Two ways. **Option A** is what you want for a client site — every push to `main`
+Two ways. **Option A** is what you want for a client site, every push to `main`
 redeploys automatically.
 
-### Option A — connect the GitHub repo (automatic deploys)
+### Option A, connect the GitHub repo (automatic deploys)
 
 1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Workers** →
    **Import a repository**.
@@ -133,7 +133,7 @@ redeploys automatically.
    - **Build command:** `npm run cf:build`
    - **Deploy command:** `npx wrangler deploy`
 
-   There is **no install command field** on this screen — Cloudflare runs its own
+   There is **no install command field** on this screen, Cloudflare runs its own
    `npm ci`. That is why the repo contains an [`.npmrc`](.npmrc) with
    `legacy-peer-deps=true`: without it Cloudflare's install fails with ERESOLVE
    before the build ever starts. Leave `.npmrc` in place.
@@ -143,7 +143,7 @@ redeploys automatically.
 
 From then on: `git push` → Cloudflare rebuilds and deploys on its own.
 
-### Option B — deploy from your own machine
+### Option B, deploy from your own machine
 
 ```bash
 npx wrangler login
@@ -164,7 +164,7 @@ in the dashboard (step 6).
 >
 > | Where | Path in the dashboard | Reaches |
 > | --- | --- | --- |
-> | **Runtime** | Worker → Settings → **Variables and Secrets** | the running Worker — `process.env` at request time |
+> | **Runtime** | Worker → Settings → **Variables and Secrets** | the running Worker, `process.env` at request time |
 > | **Build** | Worker → Settings → **Build** → Variables and secrets | only the build container |
 >
 > Secrets belong in **Runtime**. `NEXT_PUBLIC_*` values belong in **Build**,
@@ -172,9 +172,9 @@ in the dashboard (step 6).
 >
 > Symptom of getting it wrong: `/admin` says *"The website is missing its admin
 > password setting"* even though you can see `ADMIN_PASSWORD` listed in the
-> dashboard — because what you are looking at is the build list.
+> dashboard, because what you are looking at is the build list.
 
-### Runtime — Worker → Settings → Variables and Secrets
+### Runtime, Worker → Settings → Variables and Secrets
 
 All of these as **Secret** (encrypted):
 
@@ -189,7 +189,7 @@ All of these as **Secret** (encrypted):
 | `STRIPE_SECRET_KEY` | from step 3 |
 | `STRIPE_WEBHOOK_SECRET` | from step 3 |
 
-### Build — Worker → Settings → Build → Variables and secrets
+### Build, Worker → Settings → Build → Variables and secrets
 
 | Name | Type | Value |
 | --- | --- | --- |
@@ -202,7 +202,7 @@ Generate a session secret:
 node -e "console.log(crypto.randomUUID()+crypto.randomUUID())"
 ```
 
-**Runtime secrets** take effect on the next request — no rebuild needed, though a
+**Runtime secrets** take effect on the next request, no rebuild needed, though a
 redeploy does no harm. **Build variables** are baked into the bundle, so after
 changing one you must trigger a new deploy for it to have any effect.
 
@@ -220,11 +220,11 @@ changing one you must trigger a new deploy for it to have any effect.
 
 ---
 
-## 8. After the first deploy — check these
+## 8. After the first deploy, check these
 
 - [ ] `https://your-site/en` and `/ar` both load, and the Arabic page reads
       right-to-left
-- [ ] `/admin` — sign in with `ADMIN_PASSWORD`
+- [ ] `/admin`, sign in with `ADMIN_PASSWORD`
 - [ ] Make a test booking → it appears under **New bookings** and a Telegram
       message arrives
 - [ ] Create a discount code in the admin, then use it on a booking → the total
@@ -249,7 +249,7 @@ With Option A that is the whole deployment. With Option B, run `npm run deploy`
 afterwards.
 
 Content changes (prices, photos, text, hours, codes, banner) are made by AJ in
-`/admin` and appear immediately — **they do not need a deploy**.
+`/admin` and appear immediately, **they do not need a deploy**.
 
 ---
 

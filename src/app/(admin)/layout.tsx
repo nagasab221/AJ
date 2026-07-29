@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans_Arabic, Instrument_Serif, Karla } from 'next/font/google';
+import { IBM_Plex_Sans_Arabic, Karla, Playfair_Display } from 'next/font/google';
 import '@/app/globals.css';
 
-const display = Instrument_Serif({
+const display = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '500', '600'],
   variable: '--font-display',
   display: 'swap'
 });
@@ -24,13 +24,22 @@ const arabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: 'AJ — Owner area',
-  robots: { index: false, follow: false }
+  title: 'AJ Owner area',
+  robots: { index: false, follow: false },
+  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }] }
 };
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr" className={`${display.variable} ${body.variable} ${arabic.variable}`}>
+    // The owner area is pinned to the light theme: it was designed around
+    // maximum contrast for a user who is not comfortable with software, and a
+    // dark variant would undo that.
+    <html
+      lang="en"
+      dir="ltr"
+      data-theme="light"
+      className={`${display.variable} ${body.variable} ${arabic.variable}`}
+    >
       <body className="admin-scope">{children}</body>
     </html>
   );

@@ -74,10 +74,10 @@ export default function Services({ services, locale }: { services: Service[]; lo
                 <li key={service.id}>
                   <article
                     className={cx(
-                      'flex h-full flex-col rounded-2xl border bg-paper p-6 transition-all duration-300 ease-soft',
+                      'hover-lift flex h-full flex-col rounded-2xl border bg-paper p-6',
                       picked
                         ? 'border-palm shadow-lift ring-1 ring-palm/20'
-                        : 'border-dune hover:border-dune-deep hover:shadow-soft'
+                        : 'border-dune hover:border-palm/50 hover:shadow-lift'
                     )}
                   >
                     <div className="flex items-start justify-between gap-4">

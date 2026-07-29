@@ -167,7 +167,7 @@ export type BannerStyle = (typeof BANNER_STYLES)[number];
 export interface BannerSettings {
   enabled: boolean;
   text: L;
-  /** Optional href — "#booking", a promo anchor, or a full URL. */
+  /** Optional href, "#booking", a promo anchor, or a full URL. */
   link: string;
   linkLabel: L;
   style: BannerStyle;
@@ -198,7 +198,7 @@ export interface PromoCode {
   createdAt: string;
 }
 
-/** Why a code was refused — mapped to a translated message in the UI. */
+/** Why a code was refused, mapped to a translated message in the UI. */
 export type PromoRejection =
   | 'not_found'
   | 'inactive'

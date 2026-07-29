@@ -4,7 +4,7 @@ import SectionHeading from '@/components/SectionHeading';
 import { ClockIcon, HomeIcon, MapPinIcon, PhoneIcon, ArrowRightIcon } from '@/components/Icons';
 import { directionsLink, formatAED, mapEmbedSrc } from '@/lib/utils';
 import { DAY_KEYS, t as pick, type BookingSettings, type Locale, type LocationInfo } from '@/lib/types';
-import { dayKeyOf, dubaiTodayISO } from '@/lib/booking';
+import { dayKeyOf, displayTime, dubaiTodayISO } from '@/lib/booking';
 
 const DAY_LABELS: Record<string, { en: string; ar: string }> = {
   sunday: { en: 'Sunday', ar: 'الأحد' },
@@ -104,7 +104,7 @@ export default function LocationSection({
                               ? locale === 'ar'
                                 ? 'مغلق'
                                 : 'Closed'
-                              : `${hours.open} – ${hours.close}`}
+                              : `${displayTime(hours.open)} – ${displayTime(hours.close)}`}
                           </dd>
                         </div>
                       );

@@ -5,7 +5,7 @@ import { cx } from '@/lib/utils';
 
 /**
  * Fades a block up the first time it scrolls into view. Content is rendered
- * immediately either way — the animation is decoration, never a gate on the
+ * immediately either way, the animation is decoration, never a gate on the
  * text being present for crawlers or screen readers.
  */
 export default function Reveal({
